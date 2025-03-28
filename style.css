@@ -1,3 +1,6 @@
+:root{
+    font-family: "Caveat", "sans-serif";
+}
 body{
     max-width: 600px;
     color: darkslategray;

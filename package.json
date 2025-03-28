@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "restart": "webpack && webpack serve --open",
     "start": "webpack serve --open",
     "build": "webpack"
   },
