@@ -1,0 +1,54 @@
+[
+  {
+    "name": "Alnuhazux",
+    "class": "rogue",
+    "lvl": 8,
+    "stats": {
+      "strength": 10,
+      "dexterity": 10,
+      "constitution": 10,
+      "intelligence": 10,
+      "wisdom": 10,
+      "charisma": 10
+    }
+  },
+  {
+    "name": "Krusk",
+    "class": "Clérigo/Bárbaro",
+    "lvl": 8,
+    "stats": {
+      "strength": 10,
+      "dexterity": 10,
+      "constitution": 10,
+      "intelligence": 10,
+      "wisdom": 10,
+      "charisma": 10
+    }
+  },
+  {
+    "name": "Oliver",
+    "class": "Feiticeiro",
+    "lvl": 8,
+    "stats": {
+      "strength": 10,
+      "dexterity": 10,
+      "constitution": 10,
+      "intelligence": 10,
+      "wisdom": 10,
+      "charisma": 10
+    }
+  },
+  {
+    "name": "Raza",
+    "class": "Warlock/Feiticeiro",
+    "lvl": 8,
+    "stats": {
+      "strength": 10,
+      "dexterity": 10,
+      "constitution": 10,
+      "intelligence": 10,
+      "wisdom": 10,
+      "charisma": 10
+    }
+  }
+]
