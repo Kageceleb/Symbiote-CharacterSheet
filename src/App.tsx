@@ -11,7 +11,7 @@ const App: React.FC = () => {
     <>
       <div className='topContainer'>
         <div className='session-content'>
-          <h1>Here comes the content of the current session </h1>
+          <h1>Notes from the session</h1>
           {/* <button onClick={handleClick}></button> */}
         </div>
         <div></div>
