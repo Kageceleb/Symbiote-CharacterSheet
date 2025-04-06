@@ -1,4 +1,803 @@
 .topContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #f0f0f0;
+  padding: 20px;
+}
+
+.session-content {
+  padding: 15px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.characters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Character Sheet Main Container */
+.character-sheet {
+  width: 100%;
+  max-width: 850px;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  background-color: #f4e9d2; /* Parchment-like color */
+  background-image: url('https://www.transparenttextures.com/patterns/parchment.png');
+  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+  margin-bottom: 25px;
+  color: #331800;
+  position: relative;
+  border: 1px solid #8b4513;
+}
+
+/* D&D Red Banner */
+.character-sheet h1 {
+  text-align: center;
+  color: #fff;
+  margin: -25px -25px 20px -25px;
+  padding: 15px 0;
+  font-size: 28px;
+  background-color: #950000; /* D&D red */
+  border-bottom: 3px solid #600000;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 8px 8px 0 0;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px #000;
+}
+
+/* Character Portrait */
+.character-portrait-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.character-portrait {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #950000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.character-header {
   display: grid;
-  grid-template-columns: 45% 10% 45%;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid #a18d6e;
+  border-radius: 5px;
+}
+
+.character-header p {
+  margin: 5px 0;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* Section Headers */
+.section-header {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  padding: 8px 15px;
+  margin: 15px 0 10px 0;
+  background-color: #2c3e50; /* Dark blue-gray */
+  border-radius: 4px 4px 0 0;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 3px solid #950000;
+}
+
+.section-header::after {
+  content: '';
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-style: solid;
+  border-width: 8px 5px 0 5px;
+  border-color: #fff transparent transparent transparent;
+}
+
+details[open] .section-header::after {
+  border-width: 0 5px 8px 5px;
+  border-color: transparent transparent #fff transparent;
+}
+
+/* Combat Stats */
+.combat-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid #a18d6e;
+  border-radius: 0 0 5px 5px;
+}
+
+.combat-stats h3 {
+  color: #950000;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #a18d6e;
+  padding-bottom: 5px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+
+.stat-group {
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #a18d6e;
+}
+
+.stat-group p {
+  margin: 8px 0;
+  font-weight: bold;
+}
+
+/* Conditions Section */
+.conditions-section {
+  margin-top: 15px;
+}
+
+.conditions-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.condition {
+  background-color: #ff9800;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.condition-name {
+  margin-right: 5px;
+}
+
+.condition-duration {
+  font-size: 12px;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 3px 6px;
+  border-radius: 3px;
+  margin-left: 5px;
+}
+
+.condition-info {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.condition-description {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  z-index: 10;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  width: 250px;
+  color: #331800;
+  font-weight: normal;
+  display: none;
+}
+
+.condition-info:hover + .condition-description {
+  display: block;
+}
+
+.add-condition-btn {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.add-condition-btn:hover {
+  background-color: #388e3c;
+}
+
+.remove-condition-btn {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.remove-condition-btn:hover {
+  color: #ffccbc;
+}
+
+/* Ability Scores */
+.abilities-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid #a18d6e;
+  border-radius: 0 0 5px 5px;
+}
+
+.ability {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  border: 1px solid #a18d6e;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ability h3 {
+  margin: 0 0 5px 0;
+  color: #950000;
+  font-weight: bold;
+}
+
+.ability-score {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 5px 0;
+  color: #331800;
+}
+
+.ability-mod {
+  font-size: 18px;
+  color: #950000;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid #a18d6e;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.ability-mod:hover {
+  background-color: #e6e6fa;
+  transform: scale(1.1);
+}
+
+/* Roll Tooltip */
+.roll-tooltip {
+  position: absolute;
+  z-index: 10;
+  background-color: #333;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+  font-size: 14px;
+  display: none;
+}
+
+.roll-tooltip.show {
+  display: block;
+  animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.roll-result {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.dice-icon {
+  margin-right: 8px;
+  font-size: 18px;
+}
+
+.dice-roll-total {
+  font-size: 20px;
+  margin-left: 10px;
+  color: #4caf50;
+}
+
+.dice-roll-formula {
+  margin-top: 5px;
+  font-size: 12px;
+  color: #ccc;
+}
+
+/* Skills */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid #a18d6e;
+  border-radius: 0 0 5px 5px;
+}
+
+.skill {
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: 1px solid #a18d6e;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skill span {
+  font-weight: bold;
+  color: #331800;
+}
+
+.skill-mod {
+  color: #950000;
+  font-weight: bold;
+  font-size: 16px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid #a18d6e;
+  border-radius: 5px;
+  padding: 2px 10px;
+  min-width: 40px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.skill-mod:hover {
+  background-color: #e6e6fa;
+  transform: scale(1.05);
+}
+
+/* Powers */
+.powers-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid #a18d6e;
+  border-radius: 0 0 5px 5px;
+}
+
+.power-category {
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #a18d6e;
+}
+
+.power-category h3 {
+  color: #950000;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #a18d6e;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.power-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.power-item {
+  padding: 8px 10px;
+  margin-bottom: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid #a18d6e;
+  border-radius: 5px;
+  font-weight: bold;
+  position: relative;
+  transition: all 0.2s;
+}
+
+.power-item.used {
+  opacity: 0.6;
+}
+
+.power-item:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.power-name {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.power-description {
+  margin-top: 5px;
+  font-weight: normal;
+  font-size: 14px;
+  color: #555;
+  border-top: 1px dotted #ccc;
+  padding-top: 5px;
+}
+
+.power-actions {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 8px;
+}
+
+.power-roll-btn {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 3px 8px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.power-roll-btn:hover {
+  background-color: #388e3c;
+}
+
+.power-toggle-btn {
+  background-color: #950000;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 3px 8px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.power-toggle-btn:hover {
+  background-color: #7b001d;
+}
+
+.power-toggle-btn.used {
+  background-color: #888;
+}
+
+.power-toggle-btn.used:hover {
+  background-color: #666;
+}
+
+/* Power colors by type */
+.power-atwill {
+  border-left: 5px solid #4caf50 !important; /* Green */
+}
+
+.power-encounter {
+  border-left: 5px solid #f44336 !important; /* Red */
+}
+
+.power-daily {
+  border-left: 5px solid #2196f3 !important; /* Blue */
+}
+
+.power-utility {
+  border-left: 5px solid #9c27b0 !important; /* Purple */
+}
+
+/* Equipment */
+.equipment-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid #a18d6e;
+  border-radius: 0 0 5px 5px;
+}
+
+.equipment-category {
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #a18d6e;
+}
+
+.equipment-category h3 {
+  color: #950000;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #a18d6e;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.equipment-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.equipment-list li {
+  padding: 8px 10px;
+  margin-bottom: 5px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid #a18d6e;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.wealth {
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #a18d6e;
+}
+
+.wealth h3 {
+  color: #950000;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #a18d6e;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.wealth p {
+  margin: 8px 0;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+}
+
+.wealth p::after {
+  content: attr(data-coin);
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+
+.wealth .gold::after {
+  background-color: gold;
+  border: 1px solid #b8860b;
+}
+
+.wealth .silver::after {
+  background-color: silver;
+  border: 1px solid #a9a9a9;
+}
+
+.wealth .copper::after {
+  background-color: #b87333;
+  border: 1px solid #8b4513;
+}
+
+/* Feats & Abilities */
+.feats-section {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid #a18d6e;
+  border-radius: 0 0 5px 5px;
+}
+
+.feats-section h3 {
+  color: #950000;
+  margin: 15px 0 10px 0;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #a18d6e;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.feats-list {
+  list-style-type: none;
+  padding-left: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.feats-list li {
+  padding: 8px 10px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 1px solid #a18d6e;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.notes-box {
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 1px solid #a18d6e;
+  border-radius: 5px;
+  min-height: 80px;
+}
+
+/* Modal for dice roll results */
+.dice-roll-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.dice-roll-modal.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.dice-roll-content {
+  background-color: #f4e9d2;
+  background-image: url('https://www.transparenttextures.com/patterns/parchment.png');
+  padding: 25px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  position: relative;
+  animation: rollIn 0.5s;
+}
+
+@keyframes rollIn {
+  from {
+    transform: translateY(-50px) scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.dice-roll-title {
+  font-size: 22px;
+  color: #950000;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.dice-roll-result {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 10px 0;
+  color: #2c3e50;
+}
+
+.dice-roll-details {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: 15px 0;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+}
+
+.dice-roll-formula {
+  font-size: 18px;
+  color: #666;
+}
+
+.dice-values {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 5px;
+}
+
+.die-value {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background-color: #950000;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.dice-roll-modifiers {
+  font-size: 14px;
+  color: #666;
+}
+
+.close-modal-btn {
+  background-color: #2c3e50;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: background-color 0.2s;
+}
+
+.close-modal-btn:hover {
+  background-color: #1a252f;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .abilities-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .combat-stats, 
+  .powers-section,
+  .equipment-section {
+    grid-template-columns: 1fr;
+  }
+  
+  .character-header {
+    grid-template-columns: 1fr;
+  }
+  
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
 }
