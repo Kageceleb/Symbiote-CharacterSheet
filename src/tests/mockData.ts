@@ -1,5 +1,5 @@
 // This file contains mock data for tests and is not a test file itself.
-import { CharacterSheetProps, Condition, PowerData } from '../../types/CharacterSheetProps';
+import { CharacterSheetProps, Condition, PowerData } from '../types/CharacterSheetProps';
 
 export const mockPowerData: PowerData = {
   name: 'Test Power',

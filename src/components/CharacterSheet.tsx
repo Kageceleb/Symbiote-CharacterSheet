@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { CharacterSheetProps, PowerData, Condition } from "../../types/CharacterSheetProps"
+import { CharacterSheetProps, PowerData, Condition } from "../types/CharacterSheetProps"
 import { Skills } from "./Skills";
 
 export const CharacterSheet: React.FC<CharacterSheetProps> = ({ characterData }) => {

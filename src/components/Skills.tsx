@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { CharacterSheetProps, PowerData, Condition } from "../../types/CharacterSheetProps"
+import { CharacterSheetProps, PowerData, Condition } from "../types/CharacterSheetProps"
 
 const modifier: (abilityScore: number) => number = (abilityScore: number) => {
     return Math.floor((abilityScore - 10) / 2);

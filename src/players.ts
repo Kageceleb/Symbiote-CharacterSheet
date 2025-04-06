@@ -1,4 +1,6 @@
-[
+import { CharacterSheetProps } from "./types/CharacterSheetProps"
+
+export const players: Array<CharacterSheetProps["characterData"]> = [
   {
     "name": "Alnuhazux",
     "class": "Rogue",
@@ -348,7 +350,7 @@
       "religion": false,
       "stealth": false,
       "survival": false,
-      "sleightofhand": false
+      "sleightOfHand": false
     },
     "powers": {
       "atWill": [

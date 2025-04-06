@@ -6,10 +6,9 @@
   "descriptionFilePath": "/readme.md",
   "api": {
     "version": "0.1",
-    "initTimeout": 10,
     "subscriptions": {
-      "symbiote": {
-        "onStateChangeEvent": "onStateChangeEvent"
+      "dice": {
+        "onRollResults": "handleRollResult"
       }
     }
   },

@@ -1,12 +1,14 @@
 import React from 'react';
 import './App.css';
 import { CharacterSheet } from './components/CharacterSheet';
-import characters from "../players.json"
+import { players } from "./players"
 
-const charactersData = characters;
+const charactersData = players;
 const App: React.FC = () => {
 
-  // const handleClick: any (() => { })
+  const handleClick = () => {
+    TS.dice.putDiceInTray([{ name: "samuel", roll: "1d20" }], true)
+  }
   return (
     <>
       <div className='topContainer'>
@@ -14,7 +16,12 @@ const App: React.FC = () => {
           <h1>Notes from the session</h1>
           {/* <button onClick={handleClick}></button> */}
         </div>
-        <div></div>
+        <div>
+          <button
+            onClick={handleClick}
+
+          >Rolla </button>
+        </div>
         <div className='characters'>
           {charactersData.map((character) => (
             <CharacterSheet characterData={character} />
