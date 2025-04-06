@@ -57,22 +57,23 @@ export const mockCharacterData: CharacterSheetProps['characterData'] = {
   },
   skills: {
     acrobatics: false,
+    animalHandling: false,
     arcana: true,
     athletics: false,
-    bluff: false,
-    diplomacy: false,
-    dungeoneering: false,
-    endurance: false,
-    heal: false,
+    deception: false,
+    investigation: false,
+    persuasion: false,
+    medicine: false,
     history: false,
     insight: false,
-    intimidate: false,
+    intimidation: false,
     nature: false,
     perception: false,
+    performance: false,
     religion: false,
     stealth: false,
-    streetwise: false,
-    thievery: false
+    survival: false,
+    sleightOfHand: false
   },
   powers: {
     atWill: [

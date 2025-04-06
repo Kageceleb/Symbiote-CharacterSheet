@@ -296,33 +296,33 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({ characterData })
             </span>
           </div>
           <div className="skill">
-            <span>Bluff (CHA):</span>
-            <span className="skill-mod" onClick={() => rollDice("1d20" + formatModifier(characterData.skills.bluff), "Bluff Check")}>
-              {formatModifier(characterData.skills.bluff)}
+            <span>Deception (CHA):</span>
+            <span className="skill-mod" onClick={() => rollDice("1d20" + formatModifier(characterData.skills.deception), "Deception Check")}>
+              {formatModifier(characterData.skills.deception)}
             </span>
           </div>
           <div className="skill">
-            <span>Diplomacy (CHA):</span>
-            <span className="skill-mod" onClick={() => rollDice("1d20" + formatModifier(characterData.skills.diplomacy), "Diplomacy Check")}>
-              {formatModifier(characterData.skills.diplomacy)}
+            <span>Performance (CHA):</span>
+            <span className="skill-mod" onClick={() => rollDice("1d20" + formatModifier(characterData.skills.performance), "Performance Check")}>
+              {formatModifier(characterData.skills.performance)}
             </span>
           </div>
           <div className="skill">
-            <span>Dungeoneering (WIS):</span>
-            <span className="skill-mod" onClick={() => rollDice("1d20" + formatModifier(characterData.skills.dungeoneering), "Dungeoneering Check")}>
-              {formatModifier(characterData.skills.dungeoneering)}
+            <span>Investigation (WIS):</span>
+            <span className="skill-mod" onClick={() => rollDice("1d20" + formatModifier(characterData.skills.investigation), "Investigation Check")}>
+              {formatModifier(characterData.skills.investigation)}
             </span>
           </div>
           <div className="skill">
-            <span>Endurance (CON):</span>
-            <span className="skill-mod" onClick={() => rollDice("1d20" + formatModifier(characterData.skills.endurance), "Endurance Check")}>
-              {formatModifier(characterData.skills.endurance)}
+            <span>Persuasion (CON):</span>
+            <span className="skill-mod" onClick={() => rollDice("1d20" + formatModifier(characterData.skills.persuasion), "Persuasion Check")}>
+              {formatModifier(characterData.skills.persuasion)}
             </span>
           </div>
           <div className="skill">
-            <span>Heal (WIS):</span>
-            <span className="skill-mod" onClick={() => rollDice("1d20" + formatModifier(characterData.skills.heal), "Heal Check")}>
-              {formatModifier(characterData.skills.heal)}
+            <span>Medicine (WIS):</span>
+            <span className="skill-mod" onClick={() => rollDice("1d20" + formatModifier(characterData.skills.medicine), "Medicine Check")}>
+              {formatModifier(characterData.skills.medicine)}
             </span>
           </div>
           <div className="skill">
@@ -338,9 +338,9 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({ characterData })
             </span>
           </div>
           <div className="skill">
-            <span>Intimidate (CHA):</span>
-            <span className="skill-mod" onClick={() => rollDice("1d20" + formatModifier(characterData.skills.intimidate), "Intimidate Check")}>
-              {formatModifier(characterData.skills.intimidate)}
+            <span>Intimidation (CHA):</span>
+            <span className="skill-mod" onClick={() => rollDice("1d20" + formatModifier(characterData.skills.intimidation), "Intimidation Check")}>
+              {formatModifier(characterData.skills.intimidation)}
             </span>
           </div>
           <div className="skill">
@@ -368,15 +368,15 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({ characterData })
             </span>
           </div>
           <div className="skill">
-            <span>Streetwise (CHA):</span>
-            <span className="skill-mod" onClick={() => rollDice("1d20" + formatModifier(characterData.skills.streetwise), "Streetwise Check")}>
-              {formatModifier(characterData.skills.streetwise)}
+            <span>Survival (CHA):</span>
+            <span className="skill-mod" onClick={() => rollDice("1d20" + formatModifier(characterData.skills.survival), "Survival Check")}>
+              {formatModifier(characterData.skills.survival)}
             </span>
           </div>
           <div className="skill">
-            <span>Thievery (DEX):</span>
-            <span className="skill-mod" onClick={() => rollDice("1d20" + formatModifier(characterData.skills.thievery), "Thievery Check")}>
-              {formatModifier(characterData.skills.thievery)}
+            <span>SleightOfHand (DEX):</span>
+            <span className="skill-mod" onClick={() => rollDice("1d20" + formatModifier(characterData.skills.sleightofhand), "SleightOfHand Check")}>
+              {formatModifier(characterData.skills.sleightofhand)}
             </span>
           </div>
         </div>

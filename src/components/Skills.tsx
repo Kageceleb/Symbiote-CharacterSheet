@@ -1,10 +1,8 @@
 import React, { useState } from "react"
 import { CharacterSheetProps, PowerData, Condition } from "../../types/CharacterSheetProps"
 
-const modifier: (number: number) => number = (abilityScore: number) => {
-    if (abilityScore < 10) {
-        return Math.round((abilityScore - 10) / 2);
-    } return Math.floor((abilityScore - 10) / 2);
+const modifier: (abilityScore: number) => number = (abilityScore: number) => {
+    return Math.floor((abilityScore - 10) / 2);
 }
 
 
@@ -15,6 +13,7 @@ export const Skills: React.FC<CharacterSheetProps> = ({ characterData }) => {
             <summary className="section-header">Skills</summary>
             <div className="skills-grid">
                 <div className="skill">
+                    {/* "Your ability to perform acrobatic stunts, maintain balance, and move with agility." */}
                     <span>Acrobatics (DEX):</span>
                     <span>
                         {characterData.skills.acrobatics ?
@@ -27,6 +26,19 @@ export const Skills: React.FC<CharacterSheetProps> = ({ characterData }) => {
 
                 </div>
                 <div className="skill">
+                    {/* "Your ability to calm, train, and interact with animals." */}
+                    <span>Animal Handling (WIS):</span>
+                    <span>
+                        {characterData.skills.arcana ?
+                            <p>{(modifier(characterData.stats.wisdom)) + characterData.proficiencyBonus}</p>
+                            :
+                            <p>{modifier(characterData.stats.wisdom)}</p>
+                        }
+                    </span>
+
+                </div>
+                <div className="skill">
+                    {/* "Your knowledge of magic, magical items, and the planes of existence." */}
                     <span>Arcana (INT):</span>
                     <span>
                         {characterData.skills.arcana ?
@@ -38,6 +50,7 @@ export const Skills: React.FC<CharacterSheetProps> = ({ characterData }) => {
 
                 </div>
                 <div className="skill">
+                    {/* "Covers difficult physical tasks like climbing, swimming, jumping, and other feats of strength and persuasion." */}
                     <span>Athletics (STR):</span>
                     <span>
                         {characterData.skills.athletics ?
@@ -46,70 +59,69 @@ export const Skills: React.FC<CharacterSheetProps> = ({ characterData }) => {
                             <p>{modifier(characterData.stats.strength)}</p>
                         }
                     </span>
-
                 </div>
                 <div className="skill">
-                    <span>Bluff (CHA):</span>
+                    {/* "Your ability to lie, mislead, and disguise your true intentions." */}
+                    <span>Deception (CHA):</span>
                     <span>
-                        {characterData.skills.bluff ?
+                        {characterData.skills.deception ?
                             <p>{modifier(characterData.stats.charisma) + characterData.proficiencyBonus}</p>
                             :
                             <p>{modifier(characterData.stats.charisma)}</p>
                         }
                     </span>
-
                 </div>
                 <div className="skill">
-                    <span>Diplomacy (CHA):</span>
-                    <span>
-                        {characterData.skills.diplomacy ?
-                            <p>{modifier(characterData.stats.charisma) + characterData.proficiencyBonus}</p>
-                            :
-                            <p>{modifier(characterData.stats.charisma)}</p>
-                        }
-                    </span>
-
-                </div>
-                <div className="skill">
-                    <span>Dungeoneering (WIS):</span>
-                    <span>
-                        {characterData.skills.dungeoneering ?
-                            <p>{modifier(characterData.stats.wisdom) + characterData.proficiencyBonus}</p>
-                            :
-                            <p>{modifier(characterData.stats.wisdom)}</p>
-                        }
-                    </span>
-
-                </div>
-                <div className="skill">
-                    <span>Endurance (CON):</span>
-                    <span>
-                        {characterData.skills.endurance ?
-                            <p>{modifier(characterData.stats.constitution) + characterData.proficiencyBonus}</p>
-                            :
-                            <p>{modifier(characterData.stats.constitution)}</p>
-                        }
-                    </span>
-
-                </div>
-                <div className="skill">
-                    <span>Heal (WIS):</span>
-                    <span>
-                        {characterData.skills.heal ?
-                            <p>{(modifier(characterData.stats.wisdom)) + characterData.proficiencyBonus}</p>
-                            :
-                            <p>{modifier(characterData.stats.wisdom)}</p>
-                        }
-                    </span>
-
-                </div>
-                <div className="skill">
+                    {/* " Your knowledge of past events, lore, and historical figures." */}
                     <span>History (INT):</span>
                     <span>
                         {characterData.skills.history ?
                             <p>{modifier(characterData.stats.intelligence) + characterData.proficiencyBonus}</p>
                             :
                             <p>{modifier(characterData.stats.intelligence)}</p>
+                        }
+                    </span>
+                </div>
+                <div className="skill">
+                    <span>Performance (CHA):</span>
+                    <span>
+                        {characterData.skills.performance ?
+                            <p>{modifier(characterData.stats.charisma) + characterData.proficiencyBonus}</p>
+                            :
+                            <p>{modifier(characterData.stats.charisma)}</p>
+                        }
+                    </span>
+
+                </div>
+                <div className="skill">
+                    <span>Investigation (INT):</span>
+                    <span>
+                        {characterData.skills.investigation ?
+                            <p>{modifier(characterData.stats.intelligence) + characterData.proficiencyBonus}</p>
+                            :
+                            <p>{modifier(characterData.stats.intelligence)}</p>
+                        }
+                    </span>
+
+                </div>
+                <div className="skill">
+                    <span>Persuasion (CHA):</span>
+                    <span>
+                        {characterData.skills.persuasion ?
+                            <p>{modifier(characterData.stats.charisma) + characterData.proficiencyBonus}</p>
+                            :
+                            <p>{modifier(characterData.stats.charisma)}</p>
+                        }
+                    </span>
+
+                </div>
+                <div className="skill">
+                    <span>Medicine (WIS):</span>
+                    <span>
+                        {characterData.skills.medicine ?
+                            <p>{(modifier(characterData.stats.wisdom)) + characterData.proficiencyBonus}</p>
+                            :
+                            <p>{modifier(characterData.stats.wisdom)}</p>
                         }
                     </span>
 
@@ -126,9 +138,9 @@ export const Skills: React.FC<CharacterSheetProps> = ({ characterData }) => {
 
                 </div>
                 <div className="skill">
-                    <span>Intimidate (CHA):</span>
+                    <span>Intimidation (CHA):</span>
                     <span>
-                        {characterData.skills.intimidate ?
+                        {characterData.skills.intimidation ?
                             <p>{modifier(characterData.stats.charisma) + characterData.proficiencyBonus}</p>
                             :
                             <p>{modifier(characterData.stats.charisma)}</p>
@@ -137,12 +149,12 @@ export const Skills: React.FC<CharacterSheetProps> = ({ characterData }) => {
 
                 </div>
                 <div className="skill">
-                    <span>Nature (WIS):</span>
+                    <span>Nature (INT):</span>
                     <span>
                         {characterData.skills.nature ?
-                            <p>{modifier(characterData.stats.wisdom) + characterData.proficiencyBonus}</p>
+                            <p>{modifier(characterData.stats.intelligence) + characterData.proficiencyBonus}</p>
                             :
-                            <p>{modifier(characterData.stats.wisdom)}</p>
+                            <p>{modifier(characterData.stats.intelligence)}</p>
                         }
                     </span>
                 </div>
@@ -178,20 +190,20 @@ export const Skills: React.FC<CharacterSheetProps> = ({ characterData }) => {
 
                 </div>
                 <div className="skill">
-                    <span>Streetwise (CHA):</span>
+                    <span>Survival (WIS):</span>
                     <span>
-                        {characterData.skills.streetwise ?
-                            <p>{modifier(characterData.stats.charisma) + characterData.proficiencyBonus}</p>
+                        {characterData.skills.survival ?
+                            <p>{modifier(characterData.stats.wisdom) + characterData.proficiencyBonus}</p>
                             :
-                            <p>{modifier(characterData.stats.charisma)}</p>
+                            <p>{modifier(characterData.stats.wisdom)}</p>
                         }
                     </span>
 
                 </div>
                 <div className="skill">
-                    <span>Thievery (DEX):</span>
+                    <span>Sleight Of Hand (DEX):</span>
                     <span>
-                        {characterData.skills.thievery ?
+                        {characterData.skills.sleightOfHand ?
                             <p>{modifier(characterData.stats.dexterity) + characterData.proficiencyBonus}</p>
                             :
                             <p>{modifier(characterData.stats.dexterity)}</p>
