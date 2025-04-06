@@ -1,54 +1,322 @@
 [
   {
     "name": "Alnuhazux",
-    "class": "rogue",
+    "class": "Rogue",
+    "race": "Tiefling",
     "lvl": 8,
+    "xp": 27500,
+    "paragonPath": "",
     "stats": {
       "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
+      "dexterity": 20,
+      "constitution": 12,
+      "intelligence": 14,
       "wisdom": 10,
-      "charisma": 10
-    }
+      "charisma": 16
+    },
+    "health": {
+      "maxHp": 62,
+      "currentHp": 62,
+      "temporaryHp": 0,
+      "surges": {
+        "value": 7,
+        "max": 7
+      },
+      "secondWind": false
+    },
+    "defenses": {
+      "ac": 22,
+      "fortitude": 18,
+      "reflex": 24,
+      "will": 20
+    },
+    "initiative": 9,
+    "speed": 6,
+    "actionPoints": 1,
+    "savingThrows": {
+      "base": 0,
+      "deathSavingThrows": 0,
+      "modifiers": ""
+    },
+    "skills": {
+      "acrobatics": 14,
+      "arcana": 7,
+      "athletics": 5,
+      "bluff": 13,
+      "diplomacy": 8,
+      "dungeoneering": 5,
+      "endurance": 6,
+      "heal": 5,
+      "history": 7,
+      "insight": 5,
+      "intimidate": 10,
+      "nature": 5,
+      "perception": 10,
+      "religion": 7,
+      "stealth": 14,
+      "streetwise": 8,
+      "thievery": 14
+    },
+    "powers": {
+      "atWill": ["Deft Strike", "Sly Flourish"],
+      "encounter": ["Dazing Strike", "Jumping Attack", "Leaping Dodge"],
+      "daily": ["Blinding Barrage", "Easy Target"],
+      "utility": ["Fortitude of the Sword", "Slick Feint"]
+    },
+    "equipment": {
+      "weapons": ["Dagger +2", "Short Sword +1"],
+      "armor": "Leather Armor +2",
+      "gear": ["Thieves' Tools", "Backpack", "Bedroll", "Flint and Steel"],
+      "magicItems": ["Gloves of Dexterity +2", "Cloak of Resistance +1"]
+    },
+    "feats": ["Backstabber", "Weapon Focus (Light Blades)", "Improved Initiative"],
+    "wealth": {
+      "gold": 650,
+      "silver": 30,
+      "copper": 15
+    },
+    "languages": ["Common", "Infernal"],
+    "resistances": ["Fire 5"],
+    "notes": "Tiefling racial: +2 Bluff, +2 Stealth, +5 fire resistance, Infernal Wrath 1/encounter"
   },
   {
     "name": "Krusk",
-    "class": "Clérigo/Bárbaro",
+    "class": "Cleric/Barbarian",
+    "race": "Half-Orc",
     "lvl": 8,
+    "xp": 27500,
+    "paragonPath": "",
     "stats": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
+      "strength": 18,
+      "dexterity": 12,
+      "constitution": 16,
       "intelligence": 10,
-      "wisdom": 10,
+      "wisdom": 16,
       "charisma": 10
-    }
+    },
+    "health": {
+      "maxHp": 80,
+      "currentHp": 80,
+      "temporaryHp": 0,
+      "surges": {
+        "value": 10,
+        "max": 10
+      },
+      "secondWind": false
+    },
+    "defenses": {
+      "ac": 22,
+      "fortitude": 21,
+      "reflex": 17,
+      "will": 20
+    },
+    "initiative": 5,
+    "speed": 6,
+    "actionPoints": 1,
+    "savingThrows": {
+      "base": 0,
+      "deathSavingThrows": 0,
+      "modifiers": ""
+    },
+    "skills": {
+      "acrobatics": 6,
+      "arcana": 5,
+      "athletics": 14,
+      "bluff": 5,
+      "diplomacy": 10,
+      "dungeoneering": 8,
+      "endurance": 13,
+      "heal": 13,
+      "history": 5,
+      "insight": 8,
+      "intimidate": 7,
+      "nature": 8,
+      "perception": 8,
+      "religion": 10,
+      "stealth": 6,
+      "streetwise": 5,
+      "thievery": 6
+    },
+    "powers": {
+      "atWill": ["Lance of Faith", "Priest's Shield", "Howling Strike"],
+      "encounter": ["Divine Glow", "Healing Strike", "Swift Charge"],
+      "daily": ["Flame Strike", "Rage Strike"],
+      "utility": ["Blessing of Fervor", "Savage Advance"]
+    },
+    "equipment": {
+      "weapons": ["Warhammer +2", "Heavy Shield"],
+      "armor": "Chainmail +2",
+      "gear": ["Holy Symbol", "Backpack", "Healer's Kit", "Waterskin"],
+      "magicItems": ["Gauntlets of Ogre Power +2", "Amulet of Protection +1"]
+    },
+    "feats": ["Weapon Focus (Hammer)", "Toughness", "Healing Hands"],
+    "wealth": {
+      "gold": 450,
+      "silver": 20,
+      "copper": 0
+    },
+    "languages": ["Common", "Orc"],
+    "resistances": [],
+    "notes": "Half-Orc racial: +2 Intimidate, +2 Endurance, Furious Assault 1/encounter"
   },
   {
     "name": "Oliver",
-    "class": "Feiticeiro",
+    "class": "Sorcerer",
+    "race": "Human",
     "lvl": 8,
+    "xp": 27500,
+    "paragonPath": "",
     "stats": {
       "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
+      "dexterity": 14,
+      "constitution": 16,
+      "intelligence": 12,
       "wisdom": 10,
-      "charisma": 10
-    }
+      "charisma": 20
+    },
+    "health": {
+      "maxHp": 68,
+      "currentHp": 68,
+      "temporaryHp": 0,
+      "surges": {
+        "value": 8,
+        "max": 8
+      },
+      "secondWind": false
+    },
+    "defenses": {
+      "ac": 20,
+      "fortitude": 18,
+      "reflex": 19,
+      "will": 20
+    },
+    "initiative": 6,
+    "speed": 6,
+    "actionPoints": 1,
+    "savingThrows": {
+      "base": 0,
+      "deathSavingThrows": 0,
+      "modifiers": ""
+    },
+    "skills": {
+      "acrobatics": 7,
+      "arcana": 11,
+      "athletics": 5,
+      "bluff": 15,
+      "diplomacy": 15,
+      "dungeoneering": 5,
+      "endurance": 8,
+      "heal": 5,
+      "history": 6,
+      "insight": 5,
+      "intimidate": 10,
+      "nature": 5,
+      "perception": 5,
+      "religion": 6,
+      "stealth": 7,
+      "streetwise": 10,
+      "thievery": 7
+    },
+    "powers": {
+      "atWill": ["Chaos Bolt", "Storm Walk"],
+      "encounter": ["Lightning Daggers", "Bedeviling Burst", "Thundering Roar"],
+      "daily": ["Dazzling Ray", "Lightning Breath"],
+      "utility": ["Elemental Shift", "Swift Escape"]
+    },
+    "equipment": {
+      "weapons": ["Quarterstaff +2", "Dagger"],
+      "armor": "Cloth Armor +2",
+      "gear": ["Arcane Implement", "Backpack", "Spellbook", "Alchemist's Fire"],
+      "magicItems": ["Circlet of Mental Prowess +2", "Bracers of Mighty Striking +1"]
+    },
+    "feats": ["Arcane Initiate", "Implement Focus (Staff)", "Ritual Caster"],
+    "wealth": {
+      "gold": 580,
+      "silver": 50,
+      "copper": 25
+    },
+    "languages": ["Common", "Elven", "Draconic"],
+    "resistances": [],
+    "notes": "Human racial: +1 to all defenses, bonus at-will power, bonus feat, bonus skill"
   },
   {
     "name": "Raza",
-    "class": "Warlock/Feiticeiro",
+    "class": "Warlock/Sorcerer",
+    "race": "Drow",
     "lvl": 8,
+    "xp": 27500,
+    "paragonPath": "",
     "stats": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
+      "strength": 8,
+      "dexterity": 16,
+      "constitution": 14,
+      "intelligence": 16,
       "wisdom": 10,
-      "charisma": 10
-    }
+      "charisma": 18
+    },
+    "health": {
+      "maxHp": 64,
+      "currentHp": 64,
+      "temporaryHp": 0,
+      "surges": {
+        "value": 7,
+        "max": 7
+      },
+      "secondWind": false
+    },
+    "defenses": {
+      "ac": 21,
+      "fortitude": 17,
+      "reflex": 20,
+      "will": 21
+    },
+    "initiative": 7,
+    "speed": 6,
+    "actionPoints": 1,
+    "savingThrows": {
+      "base": 0,
+      "deathSavingThrows": 0,
+      "modifiers": ""
+    },
+    "skills": {
+      "acrobatics": 8,
+      "arcana": 13,
+      "athletics": 4,
+      "bluff": 14,
+      "diplomacy": 9,
+      "dungeoneering": 5,
+      "endurance": 7,
+      "heal": 5,
+      "history": 8,
+      "insight": 5,
+      "intimidate": 14,
+      "nature": 5,
+      "perception": 5,
+      "religion": 13,
+      "stealth": 13,
+      "streetwise": 9,
+      "thievery": 8
+    },
+    "powers": {
+      "atWill": ["Eldritch Blast", "Dire Radiance", "Chaos Bolt"],
+      "encounter": ["Witchfire", "Vampiric Embrace", "Thunder Slam"],
+      "daily": ["Curse of the Dark Dream", "Flames of the Pit"],
+      "utility": ["Shadow Veil", "Ethereal Stride"]
+    },
+    "equipment": {
+      "weapons": ["Rod +2", "Dagger"],
+      "armor": "Leather Armor +2",
+      "gear": ["Arcane Implement", "Backpack", "Ritual Components", "Poisons"],
+      "magicItems": ["Gloves of Eldritch Admixture +2", "Cloak of Distortion +1"]
+    },
+    "feats": ["Improved Dark One's Blessing", "Implement Expertise (Rod)", "Dual Implement Spellcaster"],
+    "wealth": {
+      "gold": 520,
+      "silver": 40,
+      "copper": 10
+    },
+    "languages": ["Common", "Elven", "Abyssal"],
+    "resistances": [],
+    "notes": "Drow racial: +2 Stealth, +2 Intimidate, Darkfire 1/encounter, Cloud of Darkness 1/encounter"
   }
 ]
