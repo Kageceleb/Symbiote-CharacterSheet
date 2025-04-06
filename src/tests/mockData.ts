@@ -46,6 +46,7 @@ export const mockCharacterData: CharacterSheetProps['characterData'] = {
     reflex: 14,
     will: 12
   },
+  proficiencyBonus: 2,
   initiative: 4,
   speed: 6,
   actionPoints: 1,
@@ -55,23 +56,23 @@ export const mockCharacterData: CharacterSheetProps['characterData'] = {
     modifiers: '+2 vs. Fear'
   },
   skills: {
-    acrobatics: 3,
-    arcana: 1,
-    athletics: 8,
-    bluff: -1,
-    diplomacy: -1,
-    dungeoneering: 0,
-    endurance: 4,
-    heal: 0,
-    history: 1,
-    insight: 0,
-    intimidate: 4,
-    nature: 0,
-    perception: 2,
-    religion: 1,
-    stealth: 2,
-    streetwise: -1,
-    thievery: 2
+    acrobatics: false,
+    arcana: true,
+    athletics: false,
+    bluff: false,
+    diplomacy: false,
+    dungeoneering: false,
+    endurance: false,
+    heal: false,
+    history: false,
+    insight: false,
+    intimidate: false,
+    nature: false,
+    perception: false,
+    religion: false,
+    stealth: false,
+    streetwise: false,
+    thievery: false
   },
   powers: {
     atWill: [

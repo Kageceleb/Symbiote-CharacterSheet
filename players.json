@@ -31,6 +31,7 @@
       "reflex": 24,
       "will": 20
     },
+    "proficiencyBonus": 4,
     "initiative": 9,
     "speed": 6,
     "actionPoints": 1,
@@ -40,23 +41,23 @@
       "modifiers": ""
     },
     "skills": {
-      "acrobatics": 14,
-      "arcana": 7,
-      "athletics": 5,
-      "bluff": 13,
-      "diplomacy": 8,
-      "dungeoneering": 5,
-      "endurance": 6,
-      "heal": 5,
-      "history": 7,
-      "insight": 5,
-      "intimidate": 10,
-      "nature": 5,
-      "perception": 10,
-      "religion": 7,
-      "stealth": 14,
-      "streetwise": 8,
-      "thievery": 14
+      "acrobatics": true,
+      "arcana": false,
+      "athletics": false,
+      "bluff": false,
+      "diplomacy": false,
+      "dungeoneering": false,
+      "endurance": false,
+      "heal": false,
+      "history": false,
+      "insight": false,
+      "intimidate": false,
+      "nature": false,
+      "perception": false,
+      "religion": false,
+      "stealth": false,
+      "streetwise": false,
+      "thievery": false
     },
     "powers": {
       "atWill": [
@@ -174,6 +175,7 @@
       "reflex": 17,
       "will": 20
     },
+    "proficiencyBonus": 4,
     "initiative": 5,
     "speed": 6,
     "actionPoints": 1,
@@ -183,23 +185,23 @@
       "modifiers": ""
     },
     "skills": {
-      "acrobatics": 6,
-      "arcana": 5,
-      "athletics": 14,
-      "bluff": 5,
-      "diplomacy": 10,
-      "dungeoneering": 8,
-      "endurance": 13,
-      "heal": 13,
-      "history": 5,
-      "insight": 8,
-      "intimidate": 7,
-      "nature": 8,
-      "perception": 8,
-      "religion": 10,
-      "stealth": 6,
-      "streetwise": 5,
-      "thievery": 6
+      "acrobatics": true,
+      "arcana": false,
+      "athletics": false,
+      "bluff": false,
+      "diplomacy": false,
+      "dungeoneering": false,
+      "endurance": false,
+      "heal": false,
+      "history": false,
+      "insight": false,
+      "intimidate": false,
+      "nature": false,
+      "perception": false,
+      "religion": false,
+      "stealth": false,
+      "streetwise": false,
+      "thievery": false
     },
     "powers": {
       "atWill": [
@@ -317,6 +319,7 @@
       "reflex": 19,
       "will": 20
     },
+    "proficiencyBonus": 4,
     "initiative": 6,
     "speed": 6,
     "actionPoints": 1,
@@ -326,23 +329,23 @@
       "modifiers": ""
     },
     "skills": {
-      "acrobatics": 7,
-      "arcana": 11,
-      "athletics": 5,
-      "bluff": 15,
-      "diplomacy": 15,
-      "dungeoneering": 5,
-      "endurance": 8,
-      "heal": 5,
-      "history": 6,
-      "insight": 5,
-      "intimidate": 10,
-      "nature": 5,
-      "perception": 5,
-      "religion": 6,
-      "stealth": 7,
-      "streetwise": 10,
-      "thievery": 7
+      "acrobatics": true,
+      "arcana": false,
+      "athletics": true,
+      "bluff": false,
+      "diplomacy": false,
+      "dungeoneering": false,
+      "endurance": false,
+      "heal": false,
+      "history": false,
+      "insight": false,
+      "intimidate": false,
+      "nature": false,
+      "perception": false,
+      "religion": false,
+      "stealth": false,
+      "streetwise": false,
+      "thievery": false
     },
     "powers": {
       "atWill": [
@@ -461,6 +464,7 @@
       "reflex": 20,
       "will": 21
     },
+    "proficiencyBonus": 4,
     "initiative": 7,
     "speed": 6,
     "actionPoints": 1,
@@ -470,23 +474,23 @@
       "modifiers": ""
     },
     "skills": {
-      "acrobatics": 8,
-      "arcana": 13,
-      "athletics": 4,
-      "bluff": 14,
-      "diplomacy": 9,
-      "dungeoneering": 5,
-      "endurance": 7,
-      "heal": 5,
-      "history": 8,
-      "insight": 5,
-      "intimidate": 14,
-      "nature": 5,
-      "perception": 5,
-      "religion": 13,
-      "stealth": 13,
-      "streetwise": 9,
-      "thievery": 8
+      "acrobatics": true,
+      "arcana": false,
+      "athletics": true,
+      "bluff": false,
+      "diplomacy": false,
+      "dungeoneering": false,
+      "endurance": false,
+      "heal": false,
+      "history": false,
+      "insight": false,
+      "intimidate": false,
+      "nature": false,
+      "perception": false,
+      "religion": false,
+      "stealth": false,
+      "streetwise": false,
+      "thievery": false
     },
     "powers": {
       "atWill": [
@@ -562,7 +566,11 @@
       "gear": ["Arcane Implement", "Backpack", "Ritual Components", "Poisons"],
       "magicItems": ["Gloves of Eldritch Admixture +2", "Cloak of Distortion +1"]
     },
-    "feats": ["Improved Dark One's Blessing", "Implement Expertise (Rod)", "Dual Implement Spellcaster"],
+    "feats": [
+      "Improved Dark One's Blessing",
+      "Implement Expertise (Rod)",
+      "Dual Implement Spellcaster"
+    ],
     "wealth": {
       "gold": 520,
       "silver": 40,

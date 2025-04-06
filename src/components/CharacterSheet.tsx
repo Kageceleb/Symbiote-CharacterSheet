@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { CharacterSheetProps, PowerData, Condition } from "../../types/CharacterSheetProps"
+import { Skills } from "./Skills";
 
 export const CharacterSheet: React.FC<CharacterSheetProps> = ({ characterData }) => {
   // State for dice roll modal
@@ -273,7 +274,7 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({ characterData })
         </div>
       </details>
 
-      <details>
+      {/* <details>
         <summary className="section-header">Skills</summary>
         <div className="skills-grid">
           <div className="skill">
@@ -379,8 +380,9 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({ characterData })
             </span>
           </div>
         </div>
-      </details>
+      </details> */}
 
+      <Skills characterData={characterData} />
       <details>
         <summary className="section-header">Powers</summary>
         <div className="powers-section">
