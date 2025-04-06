@@ -5,6 +5,7 @@ Thank you for your interest in contributing to our Kage Symbiote character sheet
 ## Table of Contents
 - [Development Setup](#development-setup)
 - [Code Style Guidelines](#code-style-guidelines)
+- [Testing Guidelines](#testing-guidelines)
 - [Development Workflow](#development-workflow)
 - [Pull Request Process](#pull-request-process)
 - [Kage Symbiote Character Sheet Specifics](#kage-symbiote-character-sheet-specifics)
@@ -55,6 +56,43 @@ npm run lint
 # Fix automatically fixable issues
 npm run lint:fix
 ```
+
+## Testing Guidelines
+
+We use Jest and React Testing Library for our testing infrastructure.
+
+### Test Structure
+
+- Place tests in the `src/__tests__` directory or alongside the component they test
+- Use descriptive test names that explain what's being tested
+- Follow the AAA pattern: Arrange, Act, Assert
+
+### Test Coverage Expectations
+
+- All new components should have at least one test
+- Critical functionality should have comprehensive tests
+- Test error states and edge cases where appropriate
+
+### Running Tests
+
+```bash
+# Run all tests
+npm test
+
+# Run tests in watch mode during development
+npm run test:watch
+
+# Generate code coverage report
+npm run test:coverage
+```
+
+### Writing Good Tests
+
+- Test behavior, not implementation details
+- Use meaningful test IDs or accessible queries
+- Mock external dependencies
+- Keep tests isolated from each other
+- Prefer shallow rendering for unit tests
 
 ## Development Workflow
 

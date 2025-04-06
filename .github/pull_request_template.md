@@ -21,11 +21,16 @@
 ## Implementation Details
 <!-- Provide a more detailed explanation of the changes made and the approach taken -->
 
-## Testing Performed
-- [ ] Manual testing through the UI
-- [ ] Unit tests
-- [ ] Integration tests
+## Testing
+- [ ] Unit tests added for new code
+- [ ] Existing tests pass
+- [ ] Manual UI testing performed
+- [ ] Edge cases and error handling tested
+- [ ] Test coverage maintained or improved
 - [ ] No tests (explain why)
+
+## Testing Details
+<!-- Provide details on specific tests added and how to run them -->
 
 ## Kage Symbiote Character Sheet Specifics
 - [ ] Character data structure changes

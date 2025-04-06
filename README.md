@@ -57,6 +57,36 @@ This project provides an interactive character sheet for Kage Symbiote role-play
 3. Track power usage during encounters
 4. Manage hit points and conditions as they change
 
+## Testing
+
+The project uses Jest and React Testing Library for unit testing.
+
+### Running Tests
+
+- Run all tests:
+  ```
+  npm test
+  ```
+
+- Run tests in watch mode (development):
+  ```
+  npm run test:watch
+  ```
+  
+- Generate test coverage report:
+  ```
+  npm run test:coverage
+  ```
+
+- Clear Jest cache (troubleshooting):
+  ```
+  npm run test:clear
+  ```
+
+### Writing Tests
+
+Place test files in the `src/__tests__` directory or alongside the components they test with the `.test.tsx` or `.spec.tsx` extension.
+
 ## Development
 
 Please refer to the following documentation for development guidelines:
