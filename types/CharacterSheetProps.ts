@@ -7,6 +7,7 @@ export interface CharacterSheetProps {
         xp: number,
         paragonPath?: string,
         epicDestiny?: string,
+        portraitUrl?: string,
         stats: {
             strength: number,
             dexterity: number,
@@ -59,10 +60,10 @@ export interface CharacterSheetProps {
             thievery: number
         },
         powers: {
-            atWill: string[],
-            encounter: string[],
-            daily: string[],
-            utility: string[]
+            atWill: PowerData[],
+            encounter: PowerData[],
+            daily: PowerData[],
+            utility: PowerData[]
         },
         equipment: {
             weapons: string[],
@@ -78,6 +79,20 @@ export interface CharacterSheetProps {
         },
         languages: string[],
         resistances: string[],
-        notes: string
+        notes: string,
+        conditions: Condition[]
     }
+}
+
+export interface PowerData {
+    name: string;
+    description?: string;
+    used: boolean;
+    diceRoll?: string;
+}
+
+export interface Condition {
+    name: string;
+    duration: string;
+    description?: string;
 }

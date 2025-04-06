@@ -1,7 +1,27 @@
-import React from "react"
-import { CharacterSheetProps } from "../../types/CharacterSheetProps"
+import React, { useState } from "react"
+import { CharacterSheetProps, PowerData, Condition } from "../../types/CharacterSheetProps"
 
 export const CharacterSheet: React.FC<CharacterSheetProps> = ({ characterData }) => {
+  // State for dice roll modal
+  const [showDiceModal, setShowDiceModal] = useState(false);
+  const [diceRollResult, setDiceRollResult] = useState<{
+    title: string;
+    formula: string;
+    total: number;
+    values: number[];
+    modifier: number;
+  } | null>(null);
+
+  // State for character's current conditions and powers
+  const [conditions, setConditions] = useState<Condition[]>(characterData.conditions || []);
+  const [powers, setPowers] = useState({
+    atWill: [...characterData.powers.atWill],
+    encounter: [...characterData.powers.encounter],
+    daily: [...characterData.powers.daily],
+    utility: [...characterData.powers.utility]
+  });
+
+  // Helper functions
   const getAbilityModifier = (abilityScore: number) => {
     return Math.floor((abilityScore - 10) / 2);
   }
@@ -15,9 +35,90 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({ characterData })
     return Math.floor(characterData.lvl / 2);
   }
 
+  // Dice rolling function
+  const rollDice = (formula: string, title: string = "Dice Roll") => {
+    // Parse the formula like "2d6+3"
+    const diceRegex = /(\d+)d(\d+)([+-]\d+)?/;
+    const match = formula.match(diceRegex);
+    
+    if (!match) return;
+    
+    const numberOfDice = parseInt(match[1]);
+    const diceType = parseInt(match[2]);
+    const modifier = match[3] ? parseInt(match[3]) : 0;
+    
+    // Roll the dice
+    const values: number[] = [];
+    for (let i = 0; i < numberOfDice; i++) {
+      values.push(Math.floor(Math.random() * diceType) + 1);
+    }
+    
+    // Calculate total
+    const diceTotal = values.reduce((sum, value) => sum + value, 0);
+    const total = diceTotal + modifier;
+    
+    // Set the result
+    setDiceRollResult({
+      title,
+      formula,
+      total,
+      values,
+      modifier
+    });
+    
+    // Show the modal
+    setShowDiceModal(true);
+  }
+
+  // Toggle power usage
+  const togglePowerUsed = (powerType: 'atWill' | 'encounter' | 'daily' | 'utility', index: number) => {
+    const newPowers = { ...powers };
+    newPowers[powerType][index].used = !newPowers[powerType][index].used;
+    setPowers(newPowers);
+  }
+
+  // Add a condition
+  const addCondition = () => {
+    const newCondition: Condition = {
+      name: "New Condition",
+      duration: "Until end of next turn",
+      description: "Describe the condition effects here"
+    };
+    setConditions([...conditions, newCondition]);
+  }
+
+  // Remove a condition
+  const removeCondition = (index: number) => {
+    const newConditions = [...conditions];
+    newConditions.splice(index, 1);
+    setConditions(newConditions);
+  }
+
+  // Reset all encounter and daily powers
+  const resetPowers = () => {
+    const newPowers = { ...powers };
+    
+    // Reset encounter and daily powers, leave at-will and utility untouched
+    newPowers.encounter = newPowers.encounter.map(power => ({ ...power, used: false }));
+    newPowers.daily = newPowers.daily.map(power => ({ ...power, used: false }));
+    
+    setPowers(newPowers);
+  }
+
   return (
     <div className="character-sheet">
       <h1>{characterData.name}</h1>
+      
+      {/* Character Portrait */}
+      {characterData.portraitUrl && (
+        <div className="character-portrait-container">
+          <img 
+            src={characterData.portraitUrl} 
+            alt={`Portrait of ${characterData.name}`} 
+            className="character-portrait"
+          />
+        </div>
+      )}
       
       <div className="character-header">
         <p className="character-race-class">Level {characterData.lvl} {characterData.race} {characterData.class}</p>
@@ -68,6 +169,41 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({ characterData })
               {characterData.savingThrows.modifiers && <p>Modifiers: {characterData.savingThrows.modifiers}</p>}
             </div>
           </div>
+
+          {/* Conditions Section */}
+          <div className="conditions-section">
+            <h3>Conditions</h3>
+            <div className="conditions-list">
+              {conditions.length === 0 ? (
+                <p>No active conditions</p>
+              ) : (
+                conditions.map((condition, index) => (
+                  <div key={`condition-${index}`} className="condition">
+                    <span className="condition-name">{condition.name}</span>
+                    <span className="condition-duration">{condition.duration}</span>
+                    {condition.description && (
+                      <>
+                        <span className="condition-info">i</span>
+                        <div className="condition-description">{condition.description}</div>
+                      </>
+                    )}
+                    <button 
+                      className="remove-condition-btn" 
+                      onClick={() => removeCondition(index)}
+                    >
+                      ×
+                    </button>
+                  </div>
+                ))
+              )}
+            </div>
+            <button className="add-condition-btn" onClick={addCondition}>
+              Add Condition
+            </button>
+            <button className="add-condition-btn" onClick={resetPowers} style={{ marginLeft: '10px' }}>
+              Reset Powers
+            </button>
+          </div>
         </div>
       </details>
 
@@ -77,32 +213,62 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({ characterData })
           <div className="ability">
             <h3>STR</h3>
             <p className="ability-score">{characterData.stats.strength}</p>
-            <p className="ability-mod">{formatModifier(getAbilityModifier(characterData.stats.strength))}</p>
+            <p 
+              className="ability-mod"
+              onClick={() => rollDice("1d20" + formatModifier(getAbilityModifier(characterData.stats.strength)), "Strength Check")}
+            >
+              {formatModifier(getAbilityModifier(characterData.stats.strength))}
+            </p>
           </div>
           <div className="ability">
             <h3>DEX</h3>
             <p className="ability-score">{characterData.stats.dexterity}</p>
-            <p className="ability-mod">{formatModifier(getAbilityModifier(characterData.stats.dexterity))}</p>
+            <p 
+              className="ability-mod"
+              onClick={() => rollDice("1d20" + formatModifier(getAbilityModifier(characterData.stats.dexterity)), "Dexterity Check")}
+            >
+              {formatModifier(getAbilityModifier(characterData.stats.dexterity))}
+            </p>
           </div>
           <div className="ability">
             <h3>CON</h3>
             <p className="ability-score">{characterData.stats.constitution}</p>
-            <p className="ability-mod">{formatModifier(getAbilityModifier(characterData.stats.constitution))}</p>
+            <p 
+              className="ability-mod"
+              onClick={() => rollDice("1d20" + formatModifier(getAbilityModifier(characterData.stats.constitution)), "Constitution Check")}
+            >
+              {formatModifier(getAbilityModifier(characterData.stats.constitution))}
+            </p>
           </div>
           <div className="ability">
             <h3>INT</h3>
             <p className="ability-score">{characterData.stats.intelligence}</p>
-            <p className="ability-mod">{formatModifier(getAbilityModifier(characterData.stats.intelligence))}</p>
+            <p 
+              className="ability-mod"
+              onClick={() => rollDice("1d20" + formatModifier(getAbilityModifier(characterData.stats.intelligence)), "Intelligence Check")}
+            >
+              {formatModifier(getAbilityModifier(characterData.stats.intelligence))}
+            </p>
           </div>
           <div className="ability">
             <h3>WIS</h3>
             <p className="ability-score">{characterData.stats.wisdom}</p>
-            <p className="ability-mod">{formatModifier(getAbilityModifier(characterData.stats.wisdom))}</p>
+            <p 
+              className="ability-mod"
+              onClick={() => rollDice("1d20" + formatModifier(getAbilityModifier(characterData.stats.wisdom)), "Wisdom Check")}
+            >
+              {formatModifier(getAbilityModifier(characterData.stats.wisdom))}
+            </p>
           </div>
           <div className="ability">
             <h3>CHA</h3>
             <p className="ability-score">{characterData.stats.charisma}</p>
-            <p className="ability-mod">{formatModifier(getAbilityModifier(characterData.stats.charisma))}</p>
+            <p 
+              className="ability-mod"
+              onClick={() => rollDice("1d20" + formatModifier(getAbilityModifier(characterData.stats.charisma)), "Charisma Check")}
+            >
+              {formatModifier(getAbilityModifier(characterData.stats.charisma))}
+            </p>
           </div>
         </div>
       </details>
@@ -112,71 +278,105 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({ characterData })
         <div className="skills-grid">
           <div className="skill">
             <span>Acrobatics (DEX):</span> 
-            <span className="skill-mod">{formatModifier(characterData.skills.acrobatics)}</span>
+            <span className="skill-mod" onClick={() => rollDice("1d20" + formatModifier(characterData.skills.acrobatics), "Acrobatics Check")}>
+              {formatModifier(characterData.skills.acrobatics)}
+            </span>
           </div>
           <div className="skill">
             <span>Arcana (INT):</span> 
-            <span className="skill-mod">{formatModifier(characterData.skills.arcana)}</span>
+            <span className="skill-mod" onClick={() => rollDice("1d20" + formatModifier(characterData.skills.arcana), "Arcana Check")}>
+              {formatModifier(characterData.skills.arcana)}
+            </span>
           </div>
           <div className="skill">
             <span>Athletics (STR):</span> 
-            <span className="skill-mod">{formatModifier(characterData.skills.athletics)}</span>
+            <span className="skill-mod" onClick={() => rollDice("1d20" + formatModifier(characterData.skills.athletics), "Athletics Check")}>
+              {formatModifier(characterData.skills.athletics)}
+            </span>
           </div>
           <div className="skill">
             <span>Bluff (CHA):</span> 
-            <span className="skill-mod">{formatModifier(characterData.skills.bluff)}</span>
+            <span className="skill-mod" onClick={() => rollDice("1d20" + formatModifier(characterData.skills.bluff), "Bluff Check")}>
+              {formatModifier(characterData.skills.bluff)}
+            </span>
           </div>
           <div className="skill">
             <span>Diplomacy (CHA):</span> 
-            <span className="skill-mod">{formatModifier(characterData.skills.diplomacy)}</span>
+            <span className="skill-mod" onClick={() => rollDice("1d20" + formatModifier(characterData.skills.diplomacy), "Diplomacy Check")}>
+              {formatModifier(characterData.skills.diplomacy)}
+            </span>
           </div>
           <div className="skill">
             <span>Dungeoneering (WIS):</span> 
-            <span className="skill-mod">{formatModifier(characterData.skills.dungeoneering)}</span>
+            <span className="skill-mod" onClick={() => rollDice("1d20" + formatModifier(characterData.skills.dungeoneering), "Dungeoneering Check")}>
+              {formatModifier(characterData.skills.dungeoneering)}
+            </span>
           </div>
           <div className="skill">
             <span>Endurance (CON):</span> 
-            <span className="skill-mod">{formatModifier(characterData.skills.endurance)}</span>
+            <span className="skill-mod" onClick={() => rollDice("1d20" + formatModifier(characterData.skills.endurance), "Endurance Check")}>
+              {formatModifier(characterData.skills.endurance)}
+            </span>
           </div>
           <div className="skill">
             <span>Heal (WIS):</span> 
-            <span className="skill-mod">{formatModifier(characterData.skills.heal)}</span>
+            <span className="skill-mod" onClick={() => rollDice("1d20" + formatModifier(characterData.skills.heal), "Heal Check")}>
+              {formatModifier(characterData.skills.heal)}
+            </span>
           </div>
           <div className="skill">
             <span>History (INT):</span> 
-            <span className="skill-mod">{formatModifier(characterData.skills.history)}</span>
+            <span className="skill-mod" onClick={() => rollDice("1d20" + formatModifier(characterData.skills.history), "History Check")}>
+              {formatModifier(characterData.skills.history)}
+            </span>
           </div>
           <div className="skill">
             <span>Insight (WIS):</span> 
-            <span className="skill-mod">{formatModifier(characterData.skills.insight)}</span>
+            <span className="skill-mod" onClick={() => rollDice("1d20" + formatModifier(characterData.skills.insight), "Insight Check")}>
+              {formatModifier(characterData.skills.insight)}
+            </span>
           </div>
           <div className="skill">
             <span>Intimidate (CHA):</span> 
-            <span className="skill-mod">{formatModifier(characterData.skills.intimidate)}</span>
+            <span className="skill-mod" onClick={() => rollDice("1d20" + formatModifier(characterData.skills.intimidate), "Intimidate Check")}>
+              {formatModifier(characterData.skills.intimidate)}
+            </span>
           </div>
           <div className="skill">
             <span>Nature (WIS):</span> 
-            <span className="skill-mod">{formatModifier(characterData.skills.nature)}</span>
+            <span className="skill-mod" onClick={() => rollDice("1d20" + formatModifier(characterData.skills.nature), "Nature Check")}>
+              {formatModifier(characterData.skills.nature)}
+            </span>
           </div>
           <div className="skill">
             <span>Perception (WIS):</span> 
-            <span className="skill-mod">{formatModifier(characterData.skills.perception)}</span>
+            <span className="skill-mod" onClick={() => rollDice("1d20" + formatModifier(characterData.skills.perception), "Perception Check")}>
+              {formatModifier(characterData.skills.perception)}
+            </span>
           </div>
           <div className="skill">
             <span>Religion (INT):</span> 
-            <span className="skill-mod">{formatModifier(characterData.skills.religion)}</span>
+            <span className="skill-mod" onClick={() => rollDice("1d20" + formatModifier(characterData.skills.religion), "Religion Check")}>
+              {formatModifier(characterData.skills.religion)}
+            </span>
           </div>
           <div className="skill">
             <span>Stealth (DEX):</span> 
-            <span className="skill-mod">{formatModifier(characterData.skills.stealth)}</span>
+            <span className="skill-mod" onClick={() => rollDice("1d20" + formatModifier(characterData.skills.stealth), "Stealth Check")}>
+              {formatModifier(characterData.skills.stealth)}
+            </span>
           </div>
           <div className="skill">
             <span>Streetwise (CHA):</span> 
-            <span className="skill-mod">{formatModifier(characterData.skills.streetwise)}</span>
+            <span className="skill-mod" onClick={() => rollDice("1d20" + formatModifier(characterData.skills.streetwise), "Streetwise Check")}>
+              {formatModifier(characterData.skills.streetwise)}
+            </span>
           </div>
           <div className="skill">
             <span>Thievery (DEX):</span> 
-            <span className="skill-mod">{formatModifier(characterData.skills.thievery)}</span>
+            <span className="skill-mod" onClick={() => rollDice("1d20" + formatModifier(characterData.skills.thievery), "Thievery Check")}>
+              {formatModifier(characterData.skills.thievery)}
+            </span>
           </div>
         </div>
       </details>
@@ -187,8 +387,29 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({ characterData })
           <div className="power-category">
             <h3>At-Will Powers</h3>
             <ul className="power-list">
-              {characterData.powers.atWill.map((power, index) => (
-                <li key={`at-will-${index}`} className="power-atwill">{power}</li>
+              {powers.atWill.map((power, index) => (
+                <li key={`at-will-${index}`} className={`power-item power-atwill ${power.used ? 'used' : ''}`}>
+                  <div className="power-name">
+                    <span>{power.name}</span>
+                  </div>
+                  {power.description && <div className="power-description">{power.description}</div>}
+                  <div className="power-actions">
+                    {power.diceRoll && (
+                      <button 
+                        className="power-roll-btn"
+                        onClick={() => rollDice(power.diceRoll!, `${power.name}`)}
+                      >
+                        Roll {power.diceRoll}
+                      </button>
+                    )}
+                    <button 
+                      className={`power-toggle-btn ${power.used ? 'used' : ''}`}
+                      onClick={() => togglePowerUsed('atWill', index)}
+                    >
+                      {power.used ? 'Mark Available' : 'Mark Used'}
+                    </button>
+                  </div>
+                </li>
               ))}
             </ul>
           </div>
@@ -196,8 +417,29 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({ characterData })
           <div className="power-category">
             <h3>Encounter Powers</h3>
             <ul className="power-list">
-              {characterData.powers.encounter.map((power, index) => (
-                <li key={`encounter-${index}`} className="power-encounter">{power}</li>
+              {powers.encounter.map((power, index) => (
+                <li key={`encounter-${index}`} className={`power-item power-encounter ${power.used ? 'used' : ''}`}>
+                  <div className="power-name">
+                    <span>{power.name}</span>
+                  </div>
+                  {power.description && <div className="power-description">{power.description}</div>}
+                  <div className="power-actions">
+                    {power.diceRoll && (
+                      <button 
+                        className="power-roll-btn"
+                        onClick={() => rollDice(power.diceRoll!, `${power.name}`)}
+                      >
+                        Roll {power.diceRoll}
+                      </button>
+                    )}
+                    <button 
+                      className={`power-toggle-btn ${power.used ? 'used' : ''}`}
+                      onClick={() => togglePowerUsed('encounter', index)}
+                    >
+                      {power.used ? 'Mark Available' : 'Mark Used'}
+                    </button>
+                  </div>
+                </li>
               ))}
             </ul>
           </div>
@@ -205,8 +447,29 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({ characterData })
           <div className="power-category">
             <h3>Daily Powers</h3>
             <ul className="power-list">
-              {characterData.powers.daily.map((power, index) => (
-                <li key={`daily-${index}`} className="power-daily">{power}</li>
+              {powers.daily.map((power, index) => (
+                <li key={`daily-${index}`} className={`power-item power-daily ${power.used ? 'used' : ''}`}>
+                  <div className="power-name">
+                    <span>{power.name}</span>
+                  </div>
+                  {power.description && <div className="power-description">{power.description}</div>}
+                  <div className="power-actions">
+                    {power.diceRoll && (
+                      <button 
+                        className="power-roll-btn"
+                        onClick={() => rollDice(power.diceRoll!, `${power.name}`)}
+                      >
+                        Roll {power.diceRoll}
+                      </button>
+                    )}
+                    <button 
+                      className={`power-toggle-btn ${power.used ? 'used' : ''}`}
+                      onClick={() => togglePowerUsed('daily', index)}
+                    >
+                      {power.used ? 'Mark Available' : 'Mark Used'}
+                    </button>
+                  </div>
+                </li>
               ))}
             </ul>
           </div>
@@ -214,8 +477,29 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({ characterData })
           <div className="power-category">
             <h3>Utility Powers</h3>
             <ul className="power-list">
-              {characterData.powers.utility.map((power, index) => (
-                <li key={`utility-${index}`} className="power-utility">{power}</li>
+              {powers.utility.map((power, index) => (
+                <li key={`utility-${index}`} className={`power-item power-utility ${power.used ? 'used' : ''}`}>
+                  <div className="power-name">
+                    <span>{power.name}</span>
+                  </div>
+                  {power.description && <div className="power-description">{power.description}</div>}
+                  <div className="power-actions">
+                    {power.diceRoll && (
+                      <button 
+                        className="power-roll-btn"
+                        onClick={() => rollDice(power.diceRoll!, `${power.name}`)}
+                      >
+                        Roll {power.diceRoll}
+                      </button>
+                    )}
+                    <button 
+                      className={`power-toggle-btn ${power.used ? 'used' : ''}`}
+                      onClick={() => togglePowerUsed('utility', index)}
+                    >
+                      {power.used ? 'Mark Available' : 'Mark Used'}
+                    </button>
+                  </div>
+                </li>
               ))}
             </ul>
           </div>
@@ -290,6 +574,36 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({ characterData })
           <p className="notes-box">{characterData.notes}</p>
         </div>
       </details>
+
+      {/* Dice Roll Modal */}
+      <div className={`dice-roll-modal ${showDiceModal ? 'show' : ''}`} onClick={() => setShowDiceModal(false)}>
+        <div className="dice-roll-content" onClick={(e) => e.stopPropagation()}>
+          {diceRollResult && (
+            <>
+              <h2 className="dice-roll-title">{diceRollResult.title}</h2>
+              <div className="dice-roll-result">{diceRollResult.total}</div>
+              <div className="dice-roll-details">
+                <div className="dice-roll-formula">{diceRollResult.formula}</div>
+                <div className="dice-values">
+                  {diceRollResult.values.map((value, index) => (
+                    <span key={index} className="die-value">{value}</span>
+                  ))}
+                </div>
+                {diceRollResult.modifier !== 0 && (
+                  <div className="dice-roll-modifiers">
+                    {diceRollResult.modifier >= 0 ? 
+                      `+${diceRollResult.modifier} modifier` : 
+                      `${diceRollResult.modifier} modifier`}
+                  </div>
+                )}
+              </div>
+              <button className="close-modal-btn" onClick={() => setShowDiceModal(false)}>
+                Close
+              </button>
+            </>
+          )}
+        </div>
+      </div>
     </div>
   );
 }
