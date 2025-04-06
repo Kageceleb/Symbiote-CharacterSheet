@@ -22,4 +22,4 @@ declare global {
       toHaveStyle(css: string | Record<string, string>): R;
     }
   }
-} 
+}

@@ -44,6 +44,7 @@ module.exports = {
     'no-var': 'error',
     'curly': ['warn', 'all'],
     'max-len': ['warn', { code: 100, ignoreUrls: true, ignoreStrings: true, ignoreTemplateLiterals: true }],
+    'no-trailing-spaces': 'error',
     
     // Kage Symbiote Project Specific
     'sort-imports': 'off', // Disable auto-sorting imports

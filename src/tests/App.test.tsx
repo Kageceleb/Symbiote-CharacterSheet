@@ -35,11 +35,11 @@ describe('App Component', () => {
     const headingElement = screen.getByText(/Here comes the content of the current session/i);
     expect(headingElement).toBeInTheDocument();
   });
-  
+
   it('renders character sheet', () => {
     render(<App />);
     const characterElement = screen.getByTestId('character-sheet');
     expect(characterElement).toBeInTheDocument();
     expect(characterElement).toHaveTextContent('Mocked Character Sheet');
   });
-}); 
+});

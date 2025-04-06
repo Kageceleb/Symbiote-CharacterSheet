@@ -128,4 +128,4 @@ export const mockCharacterData: CharacterSheetProps['characterData'] = {
       description: 'Can take only one action on your turn'
     }
   ]
-}; 
+};
