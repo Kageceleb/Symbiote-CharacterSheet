@@ -30,13 +30,13 @@ jest.mock('../components/CharacterSheet', () => {
 });
 
 describe('App Component', () => {
-  test('renders session content heading', () => {
+  it('renders session content heading', () => {
     render(<App />);
     const headingElement = screen.getByText(/Here comes the content of the current session/i);
     expect(headingElement).toBeInTheDocument();
   });
   
-  test('renders character sheet', () => {
+  it('renders character sheet', () => {
     render(<App />);
     const characterElement = screen.getByTestId('character-sheet');
     expect(characterElement).toBeInTheDocument();

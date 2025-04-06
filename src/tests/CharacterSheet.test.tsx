@@ -73,60 +73,57 @@ describe('CharacterSheet Component', () => {
     const abilityScoresSection = screen.getByText('Ability Scores');
     fireEvent.click(abilityScoresSection);
     
-    // Check ability scores with their containing elements for more specificity
-    const strSection = screen.getByText('STR').closest('.ability') as HTMLElement;
-    if (strSection) {
-      expect(within(strSection).getByText(mockCharacterData.stats.strength.toString())).toBeInTheDocument();
-    }
+    // Refactored ability score tests
+    const abilityTests = [
+      { label: 'STR', value: mockCharacterData.stats.strength },
+      { label: 'DEX', value: mockCharacterData.stats.dexterity },
+      { label: 'CON', value: mockCharacterData.stats.constitution },
+      { label: 'INT', value: mockCharacterData.stats.intelligence },
+      { label: 'WIS', value: mockCharacterData.stats.wisdom },
+      { label: 'CHA', value: mockCharacterData.stats.charisma }
+    ];
     
-    const dexSection = screen.getByText('DEX').closest('.ability') as HTMLElement;
-    if (dexSection) {
-      expect(within(dexSection).getByText(mockCharacterData.stats.dexterity.toString())).toBeInTheDocument();
-    }
-    
-    const conSection = screen.getByText('CON').closest('.ability') as HTMLElement;
-    if (conSection) {
-      expect(within(conSection).getByText(mockCharacterData.stats.constitution.toString())).toBeInTheDocument();
-    }
-    
-    const intSection = screen.getByText('INT').closest('.ability') as HTMLElement;
-    if (intSection) {
-      expect(within(intSection).getByText(mockCharacterData.stats.intelligence.toString())).toBeInTheDocument();
-    }
-    
-    const wisSection = screen.getByText('WIS').closest('.ability') as HTMLElement;
-    if (wisSection) {
-      expect(within(wisSection).getByText(mockCharacterData.stats.wisdom.toString())).toBeInTheDocument();
-    }
-    
-    const chaSection = screen.getByText('CHA').closest('.ability') as HTMLElement;
-    if (chaSection) {
-      expect(within(chaSection).getByText(mockCharacterData.stats.charisma.toString())).toBeInTheDocument();
-    }
+    abilityTests.forEach(({ label, value }) => {
+      const section = screen.getByText(label).closest('.ability') as HTMLElement;
+      expect(section).not.toBeNull();
+      expect(within(section).getByText(value.toString())).toBeInTheDocument();
+    });
   });
 
   it('calculates ability modifiers correctly', () => {
-    render(<CharacterSheet characterData={mockCharacterData} />);
+    // Set up various ability scores to test the range of modifiers
+    const characterWithVariedScores = { 
+      ...mockCharacterData,
+      stats: {
+        strength: 20,     // Should be +5
+        dexterity: 16,    // Should be +3
+        constitution: 14, // Should be +2
+        intelligence: 12, // Should be +1
+        wisdom: 10,       // Should be +0
+        charisma: 8       // Should be -1
+      }
+    };
     
-    // Expand the ability scores section
+    render(<CharacterSheet characterData={characterWithVariedScores} />);
+    
+    // Expand ability scores section
     const abilityScoresSection = screen.getByText('Ability Scores');
     fireEvent.click(abilityScoresSection);
     
-    // Use data-testid or find by containing element for more specificity
-    const strSection = screen.getByText('STR').closest('.ability') as HTMLElement;
-    if (strSection) {
-      expect(within(strSection).getByText('+3')).toBeInTheDocument(); // STR modifier
-    }
+    // Refactored multiple ability score checks
+    const abilityChecks = [
+      { label: 'STR', expectedModifier: '+5' },
+      { label: 'DEX', expectedModifier: '+3' },
+      { label: 'CON', expectedModifier: '+2' },
+      { label: 'INT', expectedModifier: '+1' },
+      { label: 'WIS', expectedModifier: '+0' },
+      { label: 'CHA', expectedModifier: '-1' }
+    ];
     
-    const dexSection = screen.getByText('DEX').closest('.ability') as HTMLElement;
-    if (dexSection) {
-      expect(within(dexSection).getByText('+2')).toBeInTheDocument(); // DEX modifier
-    }
-    
-    const chaSection = screen.getByText('CHA').closest('.ability') as HTMLElement;
-    if (chaSection) {
-      expect(within(chaSection).getByText('-1')).toBeInTheDocument(); // CHA modifier
-    }
+    abilityChecks.forEach(({ label, expectedModifier }) => {
+      const section = screen.getByText(label).closest('.ability') as HTMLElement;
+      expect(within(section).getByText(expectedModifier)).toBeInTheDocument();
+    });
   });
 
   it('shows initial conditions from character data', () => {
@@ -356,63 +353,20 @@ describe('CharacterSheet Component', () => {
     const abilityScoresSection = screen.getByText('Ability Scores');
     fireEvent.click(abilityScoresSection);
     
-    // Check formatting of modifiers
-    const strSection = screen.getByText('STR').closest('.ability') as HTMLElement;
-    if (strSection) {
-      expect(within(strSection).getByText('+5')).toBeInTheDocument(); // Positive modifier
-    }
+    // Refactored modifier formatting tests
+    const formattingTests = [
+      { label: 'STR', expectedModifier: '+5', description: 'Positive modifier' },
+      { label: 'CHA', expectedModifier: '-1', description: 'Negative modifier' },
+      { label: 'WIS', expectedModifier: '+0', description: 'Zero modifier' }
+    ];
     
-    const chaSection = screen.getByText('CHA').closest('.ability') as HTMLElement;
-    if (chaSection) {
-      expect(within(chaSection).getByText('-1')).toBeInTheDocument(); // Negative modifier
-    }
-    
-    const wisSection = screen.getByText('WIS').closest('.ability') as HTMLElement;
-    if (wisSection) {
-      expect(within(wisSection).getByText('+0')).toBeInTheDocument(); // Zero modifier
-    }
+    formattingTests.forEach(({ label, expectedModifier, description }) => {
+      const section = screen.getByText(label).closest('.ability') as HTMLElement;
+      expect(section).not.toBeNull();
+      expect(within(section).getByText(expectedModifier)).toBeInTheDocument(); // ${description}
+    });
   });
 
-  it('calculates ability modifiers correctly', () => {
-    // Set up various ability scores to test the range of modifiers
-    const characterWithVariedScores = { 
-      ...mockCharacterData,
-      stats: {
-        strength: 20,     // Should be +5
-        dexterity: 16,    // Should be +3
-        constitution: 14, // Should be +2
-        intelligence: 12, // Should be +1
-        wisdom: 10,       // Should be +0
-        charisma: 8       // Should be -1
-      }
-    };
-    
-    render(<CharacterSheet characterData={characterWithVariedScores} />);
-    
-    // Expand ability scores section
-    const abilityScoresSection = screen.getByText('Ability Scores');
-    fireEvent.click(abilityScoresSection);
-    
-    // Check each ability modifier
-    const strSection = screen.getByText('STR').closest('.ability') as HTMLElement;
-    expect(within(strSection).getByText('+5')).toBeInTheDocument();
-    
-    const dexSection = screen.getByText('DEX').closest('.ability') as HTMLElement;
-    expect(within(dexSection).getByText('+3')).toBeInTheDocument();
-    
-    const conSection = screen.getByText('CON').closest('.ability') as HTMLElement;
-    expect(within(conSection).getByText('+2')).toBeInTheDocument();
-    
-    const intSection = screen.getByText('INT').closest('.ability') as HTMLElement;
-    expect(within(intSection).getByText('+1')).toBeInTheDocument();
-    
-    const wisSection = screen.getByText('WIS').closest('.ability') as HTMLElement;
-    expect(within(wisSection).getByText('+0')).toBeInTheDocument();
-    
-    const chaSection = screen.getByText('CHA').closest('.ability') as HTMLElement;
-    expect(within(chaSection).getByText('-1')).toBeInTheDocument();
-  });
-  
   it('renders equipment section correctly', () => {
     render(<CharacterSheet characterData={mockCharacterData} />);
     

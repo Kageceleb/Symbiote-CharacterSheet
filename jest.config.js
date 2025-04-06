@@ -16,7 +16,6 @@ module.exports = {
     'src/**/*.{ts,tsx}',
     '!src/**/*.d.ts',
     '!src/**/mockData.ts',
-    '!src/**/test-utils.tsx',
   ],
   coverageDirectory: 'coverage',
 }; 
