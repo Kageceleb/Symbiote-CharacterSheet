@@ -109,7 +109,24 @@ export const mockCharacterData: CharacterSheetProps['characterData'] = {
     ]
   },
   equipment: {
-    weapons: ['Longsword', 'Dagger'],
+    weapons: [
+      {
+        name: 'Longsword',
+        attackModifier: 5,
+        damageFormula: '1d8',
+        damageModifier: 3,
+        properties: ['Versatile'],
+        description: 'A one-handed sword with a long blade.'
+      },
+      {
+        name: 'Dagger',
+        attackModifier: 4,
+        damageFormula: '1d4',
+        damageModifier: 2,
+        properties: ['Light', 'Thrown', 'Versatile'],
+        description: 'A small blade designed for stabbing or throwing.'
+      }
+    ],
     armor: 'Chain Mail',
     gear: ['Backpack', 'Bedroll', 'Rations (5 days)'],
     magicItems: ['Amulet of Health +1']

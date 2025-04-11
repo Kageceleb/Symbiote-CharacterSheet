@@ -24,7 +24,7 @@ const App: React.FC = () => {
         </div>
         <div className='characters'>
           {charactersData.map((character) => (
-            <CharacterSheet characterData={character} />
+            <CharacterSheet key={character.name} characterData={character} />
           ))}
         </div>
       </div>
