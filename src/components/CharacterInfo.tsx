@@ -12,33 +12,33 @@ export const CharacterInfo: React.FC<CharacterInfoProps> = ({ characterData }) =
       <div className="character-info-grid">
         <div className="character-info-item">
           <label>Name:</label>
-          <span>{characterData.name}</span>
+          <span>{characterData.characterData.name}</span>
         </div>
         <div className="character-info-item">
           <label>Level:</label>
-          <span>{characterData.lvl}</span>
+          <span>{characterData.characterData.lvl}</span>
         </div>
         <div className="character-info-item">
           <label>Class:</label>
-          <span>{characterData.class}</span>
+          <span>{characterData.characterData.class}</span>
         </div>
         <div className="character-info-item">
           <label>Race:</label>
-          <span>{characterData.race}</span>
+          <span>{characterData.characterData.race}</span>
         </div>
         <div className="character-info-item">
           <label>XP:</label>
-          <span>{characterData.xp}</span>
+          <span>{characterData.characterData.xp}</span>
         </div>
-        {characterData.paragonPath && (
+        {characterData.characterData.paragonPath && (
           <div className="character-info-item">
             <label>Paragon Path:</label>
-            <span>{characterData.paragonPath}</span>
+            <span>{characterData.characterData.paragonPath}</span>
           </div>
         )}
-        {characterData.portraitUrl && (
+        {characterData.characterData.portraitUrl && (
           <div className="character-portrait">
-            <img src={characterData.portraitUrl} alt={`${characterData.name}'s portrait`} />
+            <img src={characterData.characterData.portraitUrl} alt={`${characterData.characterData.name}'s portrait`} />
           </div>
         )}
       </div>

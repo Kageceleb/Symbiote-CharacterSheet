@@ -5,13 +5,17 @@ import { mockTS } from './mocks';
 
 describe('CharacterInfo', () => {
   const mockCharacterData = {
-    name: 'Alnuhazux',
-    lvl: 8,
-    class: 'Rogue',
-    race: 'Tiefling',
-    xp: 34000,
-    paragonPath: 'Shadow Assassin',
-    portraitUrl: '/path/to/portrait.jpg'
+    characterData: {
+      ...mockTS,
+      // Override specific properties for testing
+      name: 'Alnuhazux',
+      lvl: 8,
+      class: 'Rogue',
+      race: 'Tiefling',
+      xp: 34000,
+      paragonPath: 'Shadow Assassin',
+      portraitUrl: '/path/to/portrait.jpg'
+    }
   };
 
   beforeEach(() => {
@@ -20,7 +24,7 @@ describe('CharacterInfo', () => {
   });
 
   it('renders basic character information correctly', () => {
-    render(<CharacterInfo characterData={mockCharacterData as any} />);
+    render(<CharacterInfo characterData={mockCharacterData} />);
 
     // Check if basic character info is rendered
     expect(screen.getByText('Name:')).toBeInTheDocument();
@@ -40,7 +44,7 @@ describe('CharacterInfo', () => {
   });
 
   it('renders paragon path when provided', () => {
-    render(<CharacterInfo characterData={mockCharacterData as any} />);
+    render(<CharacterInfo characterData={mockCharacterData} />);
 
     // Check if paragon path is rendered
     expect(screen.getByText('Paragon Path:')).toBeInTheDocument();
@@ -48,7 +52,7 @@ describe('CharacterInfo', () => {
   });
 
   it('renders portrait when portraitUrl is provided', () => {
-    render(<CharacterInfo characterData={mockCharacterData as any} />);
+    render(<CharacterInfo characterData={mockCharacterData} />);
 
     // Check if portrait is rendered
     const portrait = screen.getByAltText("Alnuhazux's portrait");
@@ -58,11 +62,13 @@ describe('CharacterInfo', () => {
 
   it('does not render paragon path when not provided', () => {
     const characterWithoutParagonPath = {
-      ...mockCharacterData,
-      paragonPath: undefined
+      characterData: {
+        ...mockTS,
+        paragonPath: undefined
+      }
     };
     
-    render(<CharacterInfo characterData={characterWithoutParagonPath as any} />);
+    render(<CharacterInfo characterData={characterWithoutParagonPath} />);
 
     // Check that paragon path is not rendered
     expect(screen.queryByText('Paragon Path:')).not.toBeInTheDocument();
@@ -70,11 +76,13 @@ describe('CharacterInfo', () => {
 
   it('does not render portrait when portraitUrl is not provided', () => {
     const characterWithoutPortrait = {
-      ...mockCharacterData,
-      portraitUrl: undefined
+      characterData: {
+        ...mockTS,
+        portraitUrl: undefined
+      }
     };
     
-    render(<CharacterInfo characterData={characterWithoutPortrait as any} />);
+    render(<CharacterInfo characterData={characterWithoutPortrait} />);
 
     // Check that portrait is not rendered
     expect(screen.queryByAltText("Alnuhazux's portrait")).not.toBeInTheDocument();
