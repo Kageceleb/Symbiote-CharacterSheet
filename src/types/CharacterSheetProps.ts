@@ -68,7 +68,7 @@ export interface CharacterSheetProps {
             utility: PowerData[]
         },
         equipment: {
-            weapons: string[],
+            weapons: Weapon[],
             armor: string,
             gear: string[],
             magicItems: string[]
@@ -96,5 +96,14 @@ export interface PowerData {
 export interface Condition {
     name: string;
     duration: string;
+    description?: string;
+}
+
+export interface Weapon {
+    name: string;
+    attackModifier: number;
+    damageFormula: string;
+    damageModifier: number;
+    properties?: string[];
     description?: string;
 }

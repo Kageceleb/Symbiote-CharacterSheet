@@ -124,7 +124,24 @@ export const players: Array<CharacterSheetProps["characterData"]> = [
       ]
     },
     "equipment": {
-      "weapons": ["Dagger +2", "Short Sword +1"],
+      "weapons": [
+        {
+          "name": "Dagger +2",
+          "attackModifier": 11,
+          "damageFormula": "1d4",
+          "damageModifier": 7,
+          "properties": ["Light", "Thrown", "Versatile"],
+          "description": "A small blade designed for stabbing or throwing."
+        },
+        {
+          "name": "Short Sword +1",
+          "attackModifier": 10,
+          "damageFormula": "1d6",
+          "damageModifier": 6,
+          "properties": ["Finesse", "Light"],
+          "description": "A one-handed sword shorter than a longsword."
+        }
+      ],
       "armor": "Leather Armor +2",
       "gear": ["Thieves' Tools", "Backpack", "Bedroll", "Flint and Steel"],
       "magicItems": ["Gloves of Dexterity +2", "Cloak of Resistance +1"]
@@ -275,7 +292,24 @@ export const players: Array<CharacterSheetProps["characterData"]> = [
       ]
     },
     "equipment": {
-      "weapons": ["Warhammer +2", "Heavy Shield"],
+      "weapons": [
+        {
+          "name": "Warhammer +2",
+          "attackModifier": 10,
+          "damageFormula": "1d8",
+          "damageModifier": 6,
+          "properties": ["Versatile"],
+          "description": "A one-handed hammer designed for combat."
+        },
+        {
+          "name": "Heavy Shield",
+          "attackModifier": 8,
+          "damageFormula": "1d4",
+          "damageModifier": 4,
+          "properties": ["Shield"],
+          "description": "A large shield that provides protection and can be used as an improvised weapon."
+        }
+      ],
       "armor": "Chainmail +2",
       "gear": ["Holy Symbol", "Backpack", "Healer's Kit", "Waterskin"],
       "magicItems": ["Gauntlets of Ogre Power +2", "Amulet of Protection +1"]
@@ -415,7 +449,24 @@ export const players: Array<CharacterSheetProps["characterData"]> = [
       ]
     },
     "equipment": {
-      "weapons": ["Quarterstaff +2", "Dagger"],
+      "weapons": [
+        {
+          "name": "Quarterstaff +2",
+          "attackModifier": 9,
+          "damageFormula": "1d6",
+          "damageModifier": 5,
+          "properties": ["Versatile"],
+          "description": "A simple wooden staff used as a weapon and spellcasting focus."
+        },
+        {
+          "name": "Dagger",
+          "attackModifier": 7,
+          "damageFormula": "1d4",
+          "damageModifier": 3,
+          "properties": ["Light", "Thrown", "Versatile"],
+          "description": "A small blade designed for stabbing or throwing."
+        }
+      ],
       "armor": "Cloth Armor +2",
       "gear": ["Arcane Implement", "Backpack", "Spellbook", "Alchemist's Fire"],
       "magicItems": ["Circlet of Mental Prowess +2", "Bracers of Mighty Striking +1"]
@@ -567,7 +618,24 @@ export const players: Array<CharacterSheetProps["characterData"]> = [
       ]
     },
     "equipment": {
-      "weapons": ["Rod +2", "Dagger"],
+      "weapons": [
+        {
+          "name": "Rod +2",
+          "attackModifier": 9,
+          "damageFormula": "1d4",
+          "damageModifier": 5,
+          "properties": ["Arcane Focus"],
+          "description": "A magical rod used as a spellcasting focus and weapon."
+        },
+        {
+          "name": "Dagger",
+          "attackModifier": 7,
+          "damageFormula": "1d4",
+          "damageModifier": 3,
+          "properties": ["Light", "Thrown", "Versatile"],
+          "description": "A small blade designed for stabbing or throwing."
+        }
+      ],
       "armor": "Leather Armor +2",
       "gear": ["Arcane Implement", "Backpack", "Ritual Components", "Poisons"],
       "magicItems": ["Gloves of Eldritch Admixture +2", "Cloak of Distortion +1"]
