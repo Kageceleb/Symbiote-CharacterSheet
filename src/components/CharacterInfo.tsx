@@ -26,13 +26,7 @@ export const CharacterInfo: React.FC<CharacterInfoProps> = ({ characterData }) =
           <label>Race:</label>
           <span>{characterData.characterData.race}</span>
         </div>
-        {characterData.characterData.paragonPath && (
-          <div className="character-info-item">
-            <label>Paragon Path:</label>
-            <span>{characterData.characterData.paragonPath}</span>
-          </div>
-        )}
-        {characterData.characterData.portraitUrl && (
+            {characterData.characterData.portraitUrl && (
           <div className="character-portrait">
             <img src={characterData.characterData.portraitUrl} alt={`${characterData.characterData.name}'s portrait`} />
           </div>

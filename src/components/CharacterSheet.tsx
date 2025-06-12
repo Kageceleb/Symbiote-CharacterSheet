@@ -83,8 +83,6 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({ characterData })
 
       <div className="character-header">
         <p className="character-race-class">Level {characterData.lvl} {characterData.race} {characterData.class}</p>
-        {characterData.paragonPath && <p className="paragon-path">Paragon Path: {characterData.paragonPath}</p>}
-        {characterData.epicDestiny && <p className="epic-destiny">Epic Destiny: {characterData.epicDestiny}</p>}
       </div>
 
       <details open>

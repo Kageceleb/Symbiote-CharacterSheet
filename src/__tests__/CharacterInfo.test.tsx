@@ -13,7 +13,6 @@ describe('CharacterInfo', () => {
       class: 'Rogue',
       race: 'Tiefling',
       xp: 34000,
-      paragonPath: 'Shadow Assassin',
       portraitUrl: '/path/to/portrait.jpg'
     }
   };
@@ -56,20 +55,6 @@ describe('CharacterInfo', () => {
     const portrait = screen.getByAltText("Alnuhazux's portrait");
     expect(portrait).toBeInTheDocument();
     expect(portrait).toHaveAttribute('src', '/path/to/portrait.jpg');
-  });
-
-  it('does not render paragon path when not provided', () => {
-    const characterWithoutParagonPath = {
-      characterData: {
-        ...mockTS,
-        paragonPath: undefined
-      }
-    };
-    
-    render(<CharacterInfo characterData={characterWithoutParagonPath} />);
-
-    // Check that paragon path is not rendered
-    expect(screen.queryByText('Paragon Path:')).not.toBeInTheDocument();
   });
 
   it('does not render portrait when portraitUrl is not provided', () => {
