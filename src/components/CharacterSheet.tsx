@@ -102,7 +102,6 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({ characterData })
             <div className="stat-group">
               <p>Initiative: {formatModifier(characterData.initiative)}</p>
               <p>Speed: {characterData.speed} squares</p>
-              <p>Action Points: {characterData.actionPoints}</p>
             </div>
           </div>
 

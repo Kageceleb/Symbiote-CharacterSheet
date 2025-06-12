@@ -29,7 +29,6 @@ export const players: Array<CharacterSheetProps["characterData"]> = [
     "proficiencyBonus": 4,
     "initiative": 9,
     "speed": 6,
-    "actionPoints": 1,
     "savingThrows": {
       "base": 0,
       "deathSavingThrows": 0,
@@ -184,7 +183,6 @@ export const players: Array<CharacterSheetProps["characterData"]> = [
     "proficiencyBonus": 4,
     "initiative": 5,
     "speed": 6,
-    "actionPoints": 1,
     "savingThrows": {
       "base": 0,
       "deathSavingThrows": 0,
@@ -339,7 +337,6 @@ export const players: Array<CharacterSheetProps["characterData"]> = [
     "proficiencyBonus": 4,
     "initiative": 6,
     "speed": 6,
-    "actionPoints": 1,
     "savingThrows": {
       "base": 0,
       "deathSavingThrows": 0,
@@ -495,7 +492,6 @@ export const players: Array<CharacterSheetProps["characterData"]> = [
     "proficiencyBonus": 4,
     "initiative": 7,
     "speed": 6,
-    "actionPoints": 1,
     "savingThrows": {
       "base": 0,
       "deathSavingThrows": 0,
