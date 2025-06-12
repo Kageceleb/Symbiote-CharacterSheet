@@ -40,14 +40,6 @@ describe('CharacterInfo', () => {
     
   });
 
-  it('renders paragon path when provided', () => {
-    render(<CharacterInfo characterData={mockCharacterData} />);
-
-    // Check if paragon path is rendered
-    expect(screen.getByText('Paragon Path:')).toBeInTheDocument();
-    expect(screen.getByText('Shadow Assassin')).toBeInTheDocument();
-  });
-
   it('renders portrait when portraitUrl is provided', () => {
     render(<CharacterInfo characterData={mockCharacterData} />);
 

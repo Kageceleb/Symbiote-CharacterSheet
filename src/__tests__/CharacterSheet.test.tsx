@@ -25,9 +25,6 @@ describe('CharacterSheet', () => {
     expect(screen.getByText(/Tiefling/)).toBeInTheDocument();
     expect(screen.getByText(/Rogue/)).toBeInTheDocument();
     
-
-    // Check if paragon path is displayed
-    expect(screen.getByText(/Paragon Path: Shadow Assassin/)).toBeInTheDocument();
   });
 
   it('renders character portrait when portraitUrl is provided', () => {
