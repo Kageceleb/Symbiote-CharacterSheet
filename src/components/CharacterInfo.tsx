@@ -26,10 +26,6 @@ export const CharacterInfo: React.FC<CharacterInfoProps> = ({ characterData }) =
           <label>Race:</label>
           <span>{characterData.characterData.race}</span>
         </div>
-        <div className="character-info-item">
-          <label>XP:</label>
-          <span>{characterData.characterData.xp}</span>
-        </div>
         {characterData.characterData.paragonPath && (
           <div className="character-info-item">
             <label>Paragon Path:</label>

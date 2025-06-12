@@ -19,7 +19,6 @@ export const mockCharacterData: CharacterSheetProps['characterData'] = {
   class: 'Fighter',
   race: 'Human',
   lvl: 5,
-  xp: 5000,
   paragonPath: 'Test Path',
   portraitUrl: 'https://example.com/image.jpg',
   stats: {

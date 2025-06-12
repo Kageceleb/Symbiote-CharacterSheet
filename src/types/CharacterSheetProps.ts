@@ -4,7 +4,6 @@ export interface CharacterSheetProps {
         class: string,
         race: string,
         lvl: number,
-        xp: number,
         paragonPath?: string,
         epicDestiny?: string,
         portraitUrl?: string,

@@ -6,7 +6,6 @@ export const players: Array<CharacterSheetProps["characterData"]> = [
     "class": "Rogue",
     "race": "Tiefling",
     "lvl": 8,
-    "xp": 27500,
     "paragonPath": "",
     "portraitUrl": "https://i.imgur.com/HGkpyQQ.jpg",
     "stats": {
@@ -168,7 +167,6 @@ export const players: Array<CharacterSheetProps["characterData"]> = [
     "class": "Cleric/Barbarian",
     "race": "Half-Orc",
     "lvl": 8,
-    "xp": 27500,
     "paragonPath": "",
     "portraitUrl": "https://www.dndbeyond.com/avatars/14029/652/1581111423-38739076.jpeg?width=150&height=150&fit=crop&quality=95&auto=webp",
     "stats": {
@@ -330,7 +328,6 @@ export const players: Array<CharacterSheetProps["characterData"]> = [
     "class": "Sorcerer",
     "race": "Human",
     "lvl": 8,
-    "xp": 27500,
     "paragonPath": "",
     "portraitUrl": "https://www.dndbeyond.com/avatars/44141/67/1581111423-38647612.jpeg?width=150&height=150&fit=crop&quality=95&auto=webp",
     "stats": {
@@ -493,7 +490,6 @@ export const players: Array<CharacterSheetProps["characterData"]> = [
     "class": "Warlock/Sorcerer",
     "race": "Drow",
     "lvl": 8,
-    "xp": 27500,
     "paragonPath": "",
     "portraitUrl": "https://www.dndbeyond.com/avatars/15092/799/1581111423-42882950.jpeg?width=150&height=150&fit=crop&quality=95&auto=webp",
     "stats": {

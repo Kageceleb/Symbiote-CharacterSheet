@@ -10,7 +10,6 @@ export const mockTS = {
   lvl: 8,
   race: 'Tiefling',
   class: 'Rogue',
-  xp: 34000,
   paragonPath: 'Shadow Assassin',
   portraitUrl: '/path/to/portrait.jpg',
   health: {

@@ -25,9 +25,7 @@ describe('CharacterSheet', () => {
     expect(screen.getByText(/Tiefling/)).toBeInTheDocument();
     expect(screen.getByText(/Rogue/)).toBeInTheDocument();
     
-    // Check if XP is displayed
-    expect(screen.getByText(/XP: 34000/)).toBeInTheDocument();
-    
+
     // Check if paragon path is displayed
     expect(screen.getByText(/Paragon Path: Shadow Assassin/)).toBeInTheDocument();
   });

@@ -39,8 +39,6 @@ describe('CharacterInfo', () => {
     expect(screen.getByText('Race:')).toBeInTheDocument();
     expect(screen.getByText('Tiefling')).toBeInTheDocument();
     
-    expect(screen.getByText('XP:')).toBeInTheDocument();
-    expect(screen.getByText('34000')).toBeInTheDocument();
   });
 
   it('renders paragon path when provided', () => {
