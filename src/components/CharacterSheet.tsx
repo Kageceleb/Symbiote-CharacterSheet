@@ -94,9 +94,6 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({ characterData })
               <p>HP: {characterData.health.currentHp}/{characterData.health.maxHp}</p>
               <p>Bloodied: {Math.floor(characterData.health.maxHp / 2)}</p>
               <p>Temp HP: {characterData.health.temporaryHp}</p>
-              <p>Healing Surges: {characterData.health.surges.value}/{characterData.health.surges.max}</p>
-              <p>Surge Value: {Math.floor(characterData.health.maxHp / 4)}</p>
-              <p>Second Wind: {characterData.health.secondWind ? "Used" : "Available"}</p>
             </div>
           </div>
 

@@ -17,11 +17,6 @@ export interface CharacterSheetProps {
             maxHp: number,
             currentHp: number,
             temporaryHp: number,
-            surges: {
-                value: number,
-                max: number
-            },
-            secondWind: boolean
         },
         defenses: {
             ac: number,

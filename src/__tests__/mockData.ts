@@ -32,11 +32,6 @@ export const mockCharacterData: CharacterSheetProps['characterData'] = {
     maxHp: 45,
     currentHp: 30,
     temporaryHp: 5,
-    surges: {
-      value: 10,
-      max: 12
-    },
-    secondWind: false
   },
   defenses: {
     ac: 18,

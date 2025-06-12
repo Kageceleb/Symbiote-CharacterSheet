@@ -19,11 +19,6 @@ export const players: Array<CharacterSheetProps["characterData"]> = [
       "maxHp": 62,
       "currentHp": 62,
       "temporaryHp": 0,
-      "surges": {
-        "value": 7,
-        "max": 7
-      },
-      "secondWind": false
     },
     "defenses": {
       "ac": 22,
@@ -179,11 +174,6 @@ export const players: Array<CharacterSheetProps["characterData"]> = [
       "maxHp": 80,
       "currentHp": 80,
       "temporaryHp": 0,
-      "surges": {
-        "value": 10,
-        "max": 10
-      },
-      "secondWind": false
     },
     "defenses": {
       "ac": 22,
@@ -339,11 +329,6 @@ export const players: Array<CharacterSheetProps["characterData"]> = [
       "maxHp": 68,
       "currentHp": 68,
       "temporaryHp": 0,
-      "surges": {
-        "value": 8,
-        "max": 8
-      },
-      "secondWind": false
     },
     "defenses": {
       "ac": 20,
@@ -500,11 +485,6 @@ export const players: Array<CharacterSheetProps["characterData"]> = [
       "maxHp": 64,
       "currentHp": 64,
       "temporaryHp": 0,
-      "surges": {
-        "value": 7,
-        "max": 7
-      },
-      "secondWind": false
     },
     "defenses": {
       "ac": 21,

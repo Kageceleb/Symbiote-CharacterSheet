@@ -15,11 +15,6 @@ export const mockTS = {
     currentHp: 64,
     maxHp: 64,
     temporaryHp: 0,
-    surges: {
-      value: 8,
-      max: 8
-    },
-    secondWind: false
   },
   stats: {
     strength: 16,

@@ -46,9 +46,6 @@ describe('CharacterSheet', () => {
     expect(screen.getByText(/HP: 64\/64/)).toBeInTheDocument();
     expect(screen.getByText(/Bloodied: 32/)).toBeInTheDocument();
     expect(screen.getByText(/Temp HP: 0/)).toBeInTheDocument();
-    expect(screen.getByText(/Healing Surges: 8\/8/)).toBeInTheDocument();
-    expect(screen.getByText(/Surge Value: 16/)).toBeInTheDocument();
-    expect(screen.getByText(/Second Wind: Available/)).toBeInTheDocument();
   });
 
   it('renders ability scores correctly', () => {
