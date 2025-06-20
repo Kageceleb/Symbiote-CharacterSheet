@@ -121,7 +121,7 @@ details[open] .section-header::after {
 /* Combat Stats */
 .combat-stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: 1fr 1fr;
   gap: 15px;
   margin-bottom: 20px;
   padding: 15px;
