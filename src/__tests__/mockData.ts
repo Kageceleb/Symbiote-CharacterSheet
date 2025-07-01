@@ -35,9 +35,9 @@ export const mockCharacterData: CharacterSheetProps['characterData'] = {
   },
   defenses: {
     ac: 18,
-    fortitude: 16,
-    reflex: 14,
-    will: 12
+    fortitude: true,
+    reflex: false,
+    will: false
   },
   proficiencyBonus: 2,
   initiative: 4,

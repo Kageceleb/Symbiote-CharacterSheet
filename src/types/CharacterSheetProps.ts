@@ -20,9 +20,9 @@ export interface CharacterSheetProps {
         },
         defenses: {
             ac: number,
-            fortitude: number,
-            reflex: number,
-            will: number
+            fortitude: boolean,
+            reflex: boolean,
+            will: boolean
         },
         proficiencyBonus: number,
         initiative: number,

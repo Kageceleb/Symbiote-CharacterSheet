@@ -22,9 +22,9 @@ export const players: Array<CharacterSheetProps["characterData"]> = [
     },
     "defenses": {
       "ac": 22,
-      "fortitude": 18,
-      "reflex": 24,
-      "will": 20
+      "fortitude": true,
+      "reflex": false,
+      "will": true
     },
     "proficiencyBonus": 4,
     "initiative": 9,
@@ -172,11 +172,11 @@ export const players: Array<CharacterSheetProps["characterData"]> = [
     },
     "defenses": {
       "ac": 22,
-      "fortitude": 21,
-      "reflex": 17,
-      "will": 20
+      "fortitude": true,
+      "reflex": true,
+      "will": false
     },
-    "proficiencyBonus": 4,
+    "proficiencyBonus": 1,
     "initiative": 5,
     "speed": 6,
     "deathSavingThrows": 0,
@@ -322,9 +322,9 @@ export const players: Array<CharacterSheetProps["characterData"]> = [
     },
     "defenses": {
       "ac": 20,
-      "fortitude": 18,
-      "reflex": 19,
-      "will": 20
+      "fortitude": false,
+      "reflex": true,
+      "will": false
     },
     "proficiencyBonus": 4,
     "initiative": 6,
@@ -473,9 +473,9 @@ export const players: Array<CharacterSheetProps["characterData"]> = [
     },
     "defenses": {
       "ac": 21,
-      "fortitude": 17,
-      "reflex": 20,
-      "will": 21
+      "fortitude": false,
+      "reflex": true,
+      "will": true
     },
     "proficiencyBonus": 4,
     "initiative": 7,

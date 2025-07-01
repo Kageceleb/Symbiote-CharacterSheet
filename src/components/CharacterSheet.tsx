@@ -109,9 +109,9 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({ characterData })
             <h3>Defenses</h3>
             <div className="stat-group">
               <p>AC: {characterData.defenses.ac}</p>
-              <p>Fortitude: {characterData.defenses.fortitude}</p>
-              <p>Reflex: {characterData.defenses.reflex}</p>
-              <p>Will: {characterData.defenses.will}</p>
+              <p>Fortitude: { (Math.floor(characterData.stats.constitution- 10) / 2) + (characterData.defenses.fortitude? characterData.proficiencyBonus: 0)}</p>
+              <p>Reflex: { (Math.floor(characterData.stats.dexterity- 10) / 2) + (characterData.defenses.reflex? characterData.proficiencyBonus: 0)}</p>
+              <p>Will: { (Math.floor(characterData.stats.wisdom- 10) / 2) + (characterData.defenses.will? characterData.proficiencyBonus: 0)}</p>
             </div>
           </div>
 
