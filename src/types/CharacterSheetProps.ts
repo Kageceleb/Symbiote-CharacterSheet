@@ -27,11 +27,7 @@ export interface CharacterSheetProps {
         proficiencyBonus: number,
         initiative: number,
         speed: number,
-        savingThrows: {
-            base: number,
-            deathSavingThrows: number,
-            modifiers: string
-        },
+        deathSavingThrows: number,
         skills: {
             acrobatics: boolean,
             animalHandling: boolean,

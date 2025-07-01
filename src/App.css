@@ -1,9 +1,9 @@
 .topContainer {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
   background-color: #f0f0f0;
-  padding: 20px;
+  padding: 10px;
 }
 
 .session-content {
@@ -17,14 +17,14 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 10px;
 }
 
 /* Character Sheet Main Container */
 .character-sheet {
   width: 100%;
   max-width: 850px;
-  padding: 25px;
+  padding: 15px;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   background-color: #f4e9d2; /* Parchment-like color */
@@ -42,7 +42,7 @@
   color: #fff;
   margin: -25px -25px 20px -25px;
   padding: 15px 0;
-  font-size: 28px;
+  font-size: 18px;
   background-color: #950000; /* D&D red */
   border-bottom: 3px solid #600000;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
@@ -83,12 +83,12 @@
 .character-header p {
   margin: 5px 0;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 /* Section Headers */
 .section-header {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: bold;
   color: #fff;
   cursor: pointer;
@@ -137,7 +137,7 @@ details[open] .section-header::after {
   padding-bottom: 5px;
   font-weight: bold;
   text-transform: uppercase;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .stat-group {
@@ -241,7 +241,7 @@ details[open] .section-header::after {
   background-color: transparent;
   border: none;
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   cursor: pointer;
   margin-left: 5px;
   display: flex;
@@ -284,14 +284,14 @@ details[open] .section-header::after {
 }
 
 .ability-score {
-  font-size: 24px;
+  font-size: 16px;
   font-weight: bold;
   margin: 5px 0;
   color: #331800;
 }
 
 .ability-mod {
-  font-size: 18px;
+  font-size: 16px;
   color: #950000;
   font-weight: bold;
   background-color: rgba(255, 255, 255, 0.5);
@@ -342,11 +342,11 @@ details[open] .section-header::after {
 
 .dice-icon {
   margin-right: 8px;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .dice-roll-total {
-  font-size: 20px;
+  font-size: 16px;
   margin-left: 10px;
   color: #4caf50;
 }
@@ -387,7 +387,7 @@ details[open] .section-header::after {
 .skill-mod {
   color: #950000;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 14px;
   background-color: rgba(255, 255, 255, 0.5);
   border: 1px solid #a18d6e;
   border-radius: 5px;
@@ -803,7 +803,7 @@ details[open] .section-header::after {
 
 .dice-roll-title {
   color: #950000;
-  font-size: 24px;
+  font-size: 16px;
   font-weight: bold;
   margin-bottom: 15px;
   text-align: center;
@@ -812,7 +812,7 @@ details[open] .section-header::after {
 }
 
 .dice-roll-formula {
-  font-size: 18px;
+  font-size: 16px;
   color: #2c3e50;
   margin-bottom: 10px;
   text-align: center;
@@ -837,7 +837,7 @@ details[open] .section-header::after {
 }
 
 .dice-roll-result {
-  font-size: 28px;
+  font-size: 18px;
   color: #2c3e50;
   margin: 15px 0;
   text-align: center;

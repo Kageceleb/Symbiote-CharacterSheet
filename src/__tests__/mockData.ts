@@ -42,11 +42,7 @@ export const mockCharacterData: CharacterSheetProps['characterData'] = {
   proficiencyBonus: 2,
   initiative: 4,
   speed: 6,
-  savingThrows: {
-    base: 0,
-    deathSavingThrows: 1,
-    modifiers: '+2 vs. Fear'
-  },
+  deathSavingThrows: 1,
   skills: {
     acrobatics: false,
     animalHandling: false,

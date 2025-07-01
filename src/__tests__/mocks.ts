@@ -92,11 +92,7 @@ export const mockTS = {
   proficiencyBonus: 3,
   initiative: 5,
   speed: 6,
-  savingThrows: {
-    base: 0,
-    deathSavingThrows: 0,
-    modifiers: ""
-  },
+  deathSavingThrows: 0,
   equipment: {
     weapons: [
       {

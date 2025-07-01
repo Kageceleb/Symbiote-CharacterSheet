@@ -118,9 +118,7 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({ characterData })
           <div className="saving-throws-section">
             <h3>Saving Throws</h3>
             <div className="stat-group">
-              <p>Base: {formatModifier(characterData.savingThrows.base)}</p>
-              <p>Death Saving Throws: {characterData.savingThrows.deathSavingThrows}/3</p>
-              {characterData.savingThrows.modifiers && <p>Modifiers: {characterData.savingThrows.modifiers}</p>}
+              <p>Death Saving Throws: {characterData.deathSavingThrows}/3</p>
             </div>
           </div>
 

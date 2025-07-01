@@ -29,11 +29,7 @@ export const players: Array<CharacterSheetProps["characterData"]> = [
     "proficiencyBonus": 4,
     "initiative": 9,
     "speed": 6,
-    "savingThrows": {
-      "base": 0,
       "deathSavingThrows": 0,
-      "modifiers": ""
-    },
     "skills": {
       "acrobatics": true,
       "animalHandling": false,
@@ -183,11 +179,7 @@ export const players: Array<CharacterSheetProps["characterData"]> = [
     "proficiencyBonus": 4,
     "initiative": 5,
     "speed": 6,
-    "savingThrows": {
-      "base": 0,
-      "deathSavingThrows": 0,
-      "modifiers": ""
-    },
+    "deathSavingThrows": 0,
     "skills": {
       "acrobatics": true,
       "animalHandling": false,
@@ -337,11 +329,7 @@ export const players: Array<CharacterSheetProps["characterData"]> = [
     "proficiencyBonus": 4,
     "initiative": 6,
     "speed": 6,
-    "savingThrows": {
-      "base": 0,
-      "deathSavingThrows": 0,
-      "modifiers": ""
-    },
+    "deathSavingThrows": 0,
     "skills": {
       "acrobatics": true,
       "animalHandling": false,
@@ -492,11 +480,7 @@ export const players: Array<CharacterSheetProps["characterData"]> = [
     "proficiencyBonus": 4,
     "initiative": 7,
     "speed": 6,
-    "savingThrows": {
-      "base": 0,
-      "deathSavingThrows": 0,
-      "modifiers": ""
-    },
+    "deathSavingThrows": 0,
     "skills": {
       "acrobatics": true,
       "animalHandling": false,
