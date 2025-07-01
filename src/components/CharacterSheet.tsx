@@ -123,7 +123,7 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({ characterData })
           </div>
 
           {/* Conditions Section */}
-          <div className="conditions-section">
+          {/* <div className="conditions-section">
             <h3>Conditions</h3>
             <div className="conditions-list">
               {conditions.length === 0 ? (
@@ -152,15 +152,15 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({ characterData })
             <button className="add-condition-btn" onClick={addCondition}>
               Add Condition
             </button>
-          </div>
+          </div> */}
         </div>
       </details>
 
       <AbilityScores characterData={characterData} rollDice={rollDice} />
       <Skills characterData={characterData} />
-      <Powers characterData={characterData} rollDice={rollDice} />
-      <Equipments characterData={characterData} handleWeaponAttackRoll={handleWeaponAttackRoll} rollDice={rollDice} />
-      <FeatsAndAbilities characterData={characterData} />
+      {/* <Powers characterData={characterData} rollDice={rollDice} /> */}
+      {/* <Equipments characterData={characterData} handleWeaponAttackRoll={handleWeaponAttackRoll} rollDice={rollDice} /> */}
+      {/* <FeatsAndAbilities characterData={characterData} /> */}
 
       {/* Dice Roll Modal */}
       <div className={`dice-roll-modal ${showDiceModal ? 'show' : ''}`} onClick={() => setShowDiceModal(false)}>
