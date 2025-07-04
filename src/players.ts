@@ -4,7 +4,7 @@ export const players: Array<CharacterSheetProps["characterData"]> = [
   {
     "name": "Alnuhazux",
     "class": "Rogue",
-    "race": "Tiefling",
+    "race": "Dragonborn",
     "lvl": 8,
     "portraitUrl": "https://i.imgur.com/HGkpyQQ.jpg",
     "stats": {
@@ -22,11 +22,14 @@ export const players: Array<CharacterSheetProps["characterData"]> = [
     },
     "defenses": {
       "ac": 22,
-      "fortitude": true,
-      "reflex": false,
-      "will": true
+      "strength": false,
+      "dexterity": false,
+      "constitution": true,
+      "intelligence": false,
+      "wisdom": false,
+      "charisma": true
     },
-    "proficiencyBonus": 4,
+    "proficiencyBonus": 3,
     "initiative": 9,
     "speed": 6,
       "deathSavingThrows": 0,
@@ -172,11 +175,14 @@ export const players: Array<CharacterSheetProps["characterData"]> = [
     },
     "defenses": {
       "ac": 22,
-      "fortitude": true,
-      "reflex": true,
-      "will": false
+      "strength": false,
+      "dexterity": false,
+      "constitution": true,
+      "intelligence": false,
+      "wisdom": false,
+      "charisma": true
     },
-    "proficiencyBonus": 1,
+    "proficiencyBonus": 3,
     "initiative": 5,
     "speed": 6,
     "deathSavingThrows": 0,
@@ -309,24 +315,27 @@ export const players: Array<CharacterSheetProps["characterData"]> = [
     "portraitUrl": "https://www.dndbeyond.com/avatars/44141/67/1581111423-38647612.jpeg?width=150&height=150&fit=crop&quality=95&auto=webp",
     "stats": {
       "strength": 10,
-      "dexterity": 14,
-      "constitution": 16,
-      "intelligence": 12,
-      "wisdom": 10,
-      "charisma": 20
+      "dexterity": 12,
+      "constitution": 19,
+      "intelligence": 11,
+      "wisdom": 14,
+      "charisma": 22
     },
     "health": {
-      "maxHp": 68,
+      "maxHp": 56,
       "currentHp": 68,
       "temporaryHp": 0,
     },
     "defenses": {
-      "ac": 20,
-      "fortitude": false,
-      "reflex": true,
-      "will": false
+      "ac": 14,
+      "strength": false,
+      "dexterity": false,
+      "constitution": true,
+      "intelligence": false,
+      "wisdom": false,
+      "charisma": true
     },
-    "proficiencyBonus": 4,
+    "proficiencyBonus": 3,
     "initiative": 6,
     "speed": 6,
     "deathSavingThrows": 0,
@@ -473,11 +482,14 @@ export const players: Array<CharacterSheetProps["characterData"]> = [
     },
     "defenses": {
       "ac": 21,
-      "fortitude": false,
-      "reflex": true,
-      "will": true
+      "strength": false,
+      "dexterity": false,
+      "constitution": true,
+      "intelligence": false,
+      "wisdom": false,
+      "charisma": true
     },
-    "proficiencyBonus": 4,
+    "proficiencyBonus": 3,
     "initiative": 7,
     "speed": 6,
     "deathSavingThrows": 0,

@@ -85,9 +85,12 @@ export const mockTS = {
   },
   defenses: {
     ac: 22,
-    fortitude: false,
-    reflex: true,
-    will: true
+      "strength": false,
+      "dexterity": false,
+      "constitution": true,
+      "intelligence": false,
+      "wisdom": false,
+      "charisma": true
   },
   proficiencyBonus: 3,
   initiative: 5,

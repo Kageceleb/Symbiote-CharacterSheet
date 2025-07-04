@@ -109,9 +109,12 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({ characterData })
             <h3>Defenses</h3>
             <div className="stat-group">
               <p>AC: {characterData.defenses.ac}</p>
-              <p>Fortitude: { (Math.floor(characterData.stats.constitution- 10) / 2) + (characterData.defenses.fortitude? characterData.proficiencyBonus: 0)}</p>
-              <p>Reflex: { (Math.floor(characterData.stats.dexterity- 10) / 2) + (characterData.defenses.reflex? characterData.proficiencyBonus: 0)}</p>
-              <p>Will: { (Math.floor(characterData.stats.wisdom- 10) / 2) + (characterData.defenses.will? characterData.proficiencyBonus: 0)}</p>
+              <p>Strenght: + {(Math.floor((characterData.stats.strength- 10) / 2)) + (characterData.defenses.strength? characterData.proficiencyBonus: 0)}</p>
+              <p>Dexterity: + {(Math.floor((characterData.stats.dexterity- 10) / 2)) + (characterData.defenses.dexterity? characterData.proficiencyBonus: 0)}</p>
+              <p>Constitution: + {(Math.floor((characterData.stats.constitution- 10) / 2)) + (characterData.defenses.constitution? characterData.proficiencyBonus: 0)}</p>
+              <p>Intelligence: + {(Math.floor((characterData.stats.intelligence- 10) / 2)) + (characterData.defenses.intelligence? characterData.proficiencyBonus: 0)}</p>
+              <p>Wisdom: + {(Math.floor((characterData.stats.wisdom- 10) / 2)) + (characterData.defenses.wisdom? characterData.proficiencyBonus: 0)}</p>
+              <p>Charisma: + {(Math.floor((characterData.stats.charisma- 10) / 2)) + (characterData.defenses.charisma? characterData.proficiencyBonus: 0)}</p>
             </div>
           </div>
 
