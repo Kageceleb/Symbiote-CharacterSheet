@@ -89,21 +89,23 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({ characterData })
         <summary className="section-header">Combat Stats</summary>
         <div className="combat-stats">
           <div className="health-section">
-            <h3>Health</h3>
+            <h3>Base Stats</h3>
             <div className="stat-group">
               <p>HP: {characterData.health.currentHp}/{characterData.health.maxHp}</p>
               <p>Bloodied: {Math.floor(characterData.health.maxHp / 2)}</p>
               <p>Temp HP: {characterData.health.temporaryHp}</p>
+              <p>Initiative: {formatModifier(characterData.initiative)}</p>
+           
             </div>
           </div>
 
-          <div className="combat-section">
-            <h3>Initiative & Movement</h3>
+          {/* <div className="combat-section">
+            <h3>Initiative</h3>
             <div className="stat-group">
               <p>Initiative: {formatModifier(characterData.initiative)}</p>
               <p>Speed: {characterData.speed} squares</p>
             </div>
-          </div>
+          </div> */}
 
           <div className="defenses-section">
             <h3>Defenses</h3>
@@ -118,12 +120,12 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({ characterData })
             </div>
           </div>
 
-          <div className="saving-throws-section">
+          {/* <div className="saving-throws-section">
             <h3>Saving Throws</h3>
             <div className="stat-group">
               <p>Death Saving Throws: {characterData.deathSavingThrows}/3</p>
             </div>
-          </div>
+          </div> */}
 
           {/* Conditions Section */}
           {/* <div className="conditions-section">

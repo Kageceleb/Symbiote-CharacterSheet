@@ -39,8 +39,8 @@
 /* D&D Red Banner */
 .character-sheet h1 {
   text-align: center;
-  color: #fff;
-  margin: -25px -25px 20px -25px;
+  color: #faead2;
+  margin: -15px -15px 10px -15px;
   padding: 15px 0;
   font-size: 18px;
   background-color: #950000; /* D&D red */
@@ -57,7 +57,7 @@
 .character-portrait-container {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 
 .character-portrait {
@@ -73,7 +73,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   padding: 10px;
   background-color: rgba(255, 255, 255, 0.5);
   border: 1px solid #a18d6e;
@@ -122,8 +122,8 @@ details[open] .section-header::after {
 .combat-stats {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 15px;
-  margin-bottom: 20px;
+  gap: 5px;
+  margin-bottom: 5px;
   padding: 15px;
   background-color: rgba(255, 255, 255, 0.5);
   border: 1px solid #a18d6e;
@@ -142,7 +142,7 @@ details[open] .section-header::after {
 
 .stat-group {
   background-color: rgba(255, 255, 255, 0.7);
-  padding: 10px;
+  padding: 5px;
   border-radius: 5px;
   border: 1px solid #a18d6e;
 }
@@ -154,14 +154,14 @@ details[open] .section-header::after {
 
 /* Conditions Section */
 .conditions-section {
-  margin-top: 15px;
+  margin-top: 5px;
 }
 
 .conditions-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 10px;
+  gap: 5px;
+  margin-top: 5px;
 }
 
 .condition {
@@ -874,7 +874,7 @@ details[open] .section-header::after {
   .combat-stats, 
   .powers-section,
   .equipment-section {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
   
   .character-header {
