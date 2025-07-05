@@ -1,8 +1,32 @@
 export interface BaseStats {
-    strength: number,
-    dexterity: number,
-    constitution: number,
-    intelligence: number,
+    strength: {
+        value: number,
+        saving: boolean
+    },
+    dexterity: {
+        value: number,
+        saving: boolean
+    },
+    constitution: {
+        value: number,
+        saving: boolean
+    },
+    intelligence: {
+        value: number,
+        saving: boolean
+    },
+    wisdom: {
+        value: number,
+        saving: boolean
+    },
+    charisma: {
+        value: number,
+        saving: boolean
+    }
+}
+export interface StatsProps {
+
+
     wisdom: number,
     charisma: number
 }

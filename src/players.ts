@@ -8,12 +8,30 @@ export const players: Array<CharacterSheetProps["characterData"]> = [
     "lvl": 8,
     "portraitUrl": "https://www.dndbeyond.com/avatars/47960/518/1581111423-143195888.jpeg?width=150&height=150&fit=crop&quality=95&auto=webp",
     "stats": {
-      "strength": 10,
-      "dexterity": 20,
-      "constitution": 12,
-      "intelligence": 14,
-      "wisdom": 10,
-      "charisma": 16
+      "strength": {
+        "value": 10,
+        "saving": false
+      },
+      "dexterity": {
+        "value": 20,
+        "saving": true,
+      },
+      "constitution": {
+        "value": 12,
+        "saving": true
+      },
+      "intelligence": {
+        "value": 14,
+        "saving": false
+      },
+      "wisdom": {
+        "value": 10,
+        "saving": false
+      },
+      "charisma": {
+        "value": 16,
+        "saving": false
+      },
     },
     "health": {
       "maxHp": 62,

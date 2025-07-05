@@ -35,8 +35,8 @@ export const Skills: React.FC<CharacterSheetProps> = ({ characterData }) => {
                     {characterData.skills.map((skill: SkillProps) => {
                         const abilityScore = characterData.stats[skill.ability]
                         const mod = skill.isProficient ?
-                            modifier(abilityScore) + characterData.proficiencyBonus :
-                            modifier(abilityScore);
+                            modifier(abilityScore.value) + characterData.proficiencyBonus :
+                            modifier(abilityScore.value);
 
                         return (
 

@@ -21,12 +21,12 @@ export const mockCharacterData: CharacterSheetProps['characterData'] = {
   lvl: 5,
   portraitUrl: 'https://example.com/image.jpg',
   stats: {
-    strength: 16,
-    dexterity: 14,
-    constitution: 15,
-    intelligence: 12,
-    wisdom: 10,
-    charisma: 8
+    strength: { value: 16, saving: false },
+    dexterity: { value: 14, saving: false },
+    constitution: { value: 15, saving: true },
+    intelligence: { value: 12, saving: false },
+    wisdom: { value: 10, saving: false },
+    charisma: { value: 8, saving: true }
   },
   health: {
     maxHp: 45,
