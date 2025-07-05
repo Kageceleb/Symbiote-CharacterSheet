@@ -1,37 +1,37 @@
 import React from 'react';
 import { CharacterSheetProps } from '../types/CharacterSheetProps';
 
-interface CharacterInfoProps {
-  characterData: CharacterSheetProps;
-}
 
-export const CharacterInfo: React.FC<CharacterInfoProps> = ({ characterData }) => {
+export const CharacterInfo: React.FC<CharacterSheetProps> = ({ characterData }) => {
   return (
-    <details className="character-info-section" open>
-      <summary>Character Info</summary>
-      <div className="character-info-grid">
-        <div className="character-info-item">
-          <label>Name:</label>
-          <span>{characterData.characterData.name}</span>
-        </div>
+    <div >
+      {
+        characterData.portraitUrl && (
+          <div className="character-portrait-container">
+            <img
+              className="character-portrait"
+              src={characterData.portraitUrl}
+              alt={`${characterData.name}'s portrait`} />
+          </div>
+        )
+      }
+      < div className="character-info" >
+
         <div className="character-info-item">
           <label>Level:</label>
-          <span>{characterData.characterData.lvl}</span>
+          <span>{characterData.lvl}</span>
         </div>
-        <div className="character-info-item">
-          <label>Class:</label>
-          <span>{characterData.characterData.class}</span>
-        </div>
-        <div className="character-info-item">
-          <label>Race:</label>
-          <span>{characterData.characterData.race}</span>
-        </div>
-            {characterData.characterData.portraitUrl && (
-          <div className="character-portrait">
-            <img src={characterData.characterData.portraitUrl} alt={`${characterData.characterData.name}'s portrait`} />
+        <div>
+          <div className="character-info-item">
+            <label>Class:</label>
+            <span>{characterData.class}</span>
           </div>
-        )}
-      </div>
-    </details>
+          <div className="character-info-item">
+            <label>Race:</label>
+            <span>{characterData.race}</span>
+          </div>
+        </div>
+      </div >
+    </div >
   );
 }; 

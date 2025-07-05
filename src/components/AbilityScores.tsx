@@ -27,7 +27,7 @@ export const AbilityScores: React.FC<AbilityScoresProps> = ({ characterData, rol
             <p className="ability-score">{stat.value}</p>
             <p
               className="ability-mod"
-              onClick={() => rollDice(`1d20${formatModifier(getAbilityModifier(stat.value))}`, `${stat.name} Check`)}
+              onClick={() => rollDice(`1d20${formatModifier(getAbilityModifier(stat.value))}`, `${name} Check`)}
             >
               {formatModifier(getAbilityModifier(stat.value))}
             </p>
@@ -38,7 +38,7 @@ export const AbilityScores: React.FC<AbilityScoresProps> = ({ characterData, rol
             )}
             <p
               className="ability-mod"
-              onClick={() => rollDice(`1d20${formatModifier(getAbilityModifier(stat.value + (stat.saving ? characterData.proficiencyBonus : 0)))}`, `${stat.name} Saving Throw`)}>
+              onClick={() => rollDice(`1d20${formatModifier(getAbilityModifier(stat.value + (stat.saving ? characterData.proficiencyBonus : 0)))}`, `${name} Saving Throw`)}>
               {formatModifier(getAbilityModifier(stat.value + (stat.saving ? characterData.proficiencyBonus : 0)))}
             </p>
           </div>

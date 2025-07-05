@@ -2,6 +2,9 @@ import React, { useState } from "react"
 import { CharacterSheetProps, Condition } from "../types/CharacterSheetProps"
 import { Skills } from "./Skills";
 import { AbilityScores } from "./AbilityScores";
+import { info } from "console";
+import { start } from "repl";
+import { CharacterInfo } from "./CharacterInfo";
 
 export const CharacterSheet: React.FC<CharacterSheetProps> = ({ characterData }) => {
   // State for dice roll modal
@@ -27,12 +30,9 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({ characterData })
 
   // Dice rolling function
   const rollDice = (formula: string, title: string) => {
-    if (typeof TS === 'undefined' || !TS.dice) {
-      throw new Error('TS.dice is not available');
-    }
-
-    TS.dice.putDiceInTray([{ name: title, roll: formula }], false);
+    TS.dice.putDiceInTray([{ name: title, roll: formula }], false)
   }
+
 
   // Add a condition
   const addCondition = () => {
@@ -67,87 +67,35 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({ characterData })
     <div className="character-sheet">
       <h1>{characterData.name}</h1>
 
-      {/* Character Portrait */}
-      {characterData.portraitUrl && (
-        <div className="character-portrait-container">
-          <img
-            src={characterData.portraitUrl}
-            alt={`Portrait of ${characterData.name}`}
-            className="character-portrait"
-          />
-        </div>
-      )}
+      <div className="character-main-row">
+        <CharacterInfo characterData={characterData} />
 
-      <div className="character-header">
-        <p className="character-race-class">Level {characterData.lvl} {characterData.race} {characterData.class}</p>
-      </div>
-
-      <details open>
-        <summary className="section-header">Combat Stats</summary>
         <div className="combat-stats">
-          <div className="health-section">
-            <h3>Base Stats</h3>
-            <div className="stat-group">
-              <p>HP: {characterData.health.maxHp} /<input type="number" size={10} /> </p>
-              <p>Temp HP: <input type="number" /> </p>
-              <p>Initiative: {formatModifier(characterData.initiative)}</p>
+          <h3>Base Stats</h3>
+          <div className="stat-group">
+            <p>HP: {characterData.health.maxHp}: <input type="number" size={10} /> </p>
+            <p>Temp HP: <input type="number" /> </p>
+            <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '10px' }}>
+              <p>Initiative: </p>
+              <p
+                className="ability-mod"
+                onClick={() => rollDice(`1d20+${characterData.initiative}`, `${characterData.name} Initiative`)}>
 
+                {formatModifier(characterData.initiative)}</p>
             </div>
-          </div>
-
-          <div className="defenses-section">
-            <h3>Defenses</h3>
             <div className="stat-group">
               <p>AC: {characterData.defenses.ac}</p>
             </div>
           </div>
-
-          {/* <div className="saving-throws-section">
-            <h3>Saving Throws</h3>
-            <div className="stat-group">
-              <p>Death Saving Throws: {characterData.deathSavingThrows}/3</p>
-            </div>
-          </div> */}
-
-          {/* Conditions Section */}
-          {/* <div className="conditions-section">
-            <h3>Conditions</h3>
-            <div className="conditions-list">
-              {conditions.length === 0 ? (
-                <p>No active conditions</p>
-              ) : (
-                conditions.map((condition, index) => (
-                  <div key={`condition-${index}`} className="condition">
-                    <span className="condition-name">{condition.name}</span>
-                    <span className="condition-duration">{condition.duration}</span>
-                    {condition.description && (
-                      <>
-                        <span className="condition-info">i</span>
-                        <div className="condition-description">{condition.description}</div>
-                      </>
-                    )}
-                    <button
-                      className="remove-condition-btn"
-                      onClick={() => removeCondition(index)}
-                    >
-                      ×
-                    </button>
-                  </div>
-                ))
-              )}
-            </div>
-            <button className="add-condition-btn" onClick={addCondition}>
-              Add Condition
-            </button>
-          </div> */}
         </div>
-      </details>
 
+
+        {/* <Powers characterData={characterData} rollDice={rollDice} /> */}
+        {/* <Equipments characterData={characterData} handleWeaponAttackRoll={handleWeaponAttackRoll} rollDice={rollDice} /> */}
+        {/* <FeatsAndAbilities characterData={characterData} /> */}
+      </div>
       <AbilityScores characterData={characterData} rollDice={rollDice} />
       <Skills characterData={characterData} />
-      {/* <Powers characterData={characterData} rollDice={rollDice} /> */}
-      {/* <Equipments characterData={characterData} handleWeaponAttackRoll={handleWeaponAttackRoll} rollDice={rollDice} /> */}
-      {/* <FeatsAndAbilities characterData={characterData} /> */}
 
       {/* Dice Roll Modal */}
       <div className={`dice-roll-modal ${showDiceModal ? 'show' : ''}`} onClick={() => setShowDiceModal(false)}>
