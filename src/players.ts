@@ -6,7 +6,7 @@ export const players: Array<CharacterSheetProps["characterData"]> = [
     "class": "Rogue",
     "race": "Dragonborn",
     "lvl": 8,
-    "portraitUrl": "https://i.imgur.com/HGkpyQQ.jpg",
+    "portraitUrl": "https://www.dndbeyond.com/avatars/47960/518/1581111423-143195888.jpeg?width=150&height=150&fit=crop&quality=95&auto=webp",
     "stats": {
       "strength": 10,
       "dexterity": 20,
@@ -32,27 +32,101 @@ export const players: Array<CharacterSheetProps["characterData"]> = [
     "proficiencyBonus": 3,
     "initiative": 9,
     "speed": 6,
-      "deathSavingThrows": 0,
-    "skills": {
-      "acrobatics": true,
-      "animalHandling": false,
-      "arcana": false,
-      "athletics": false,
-      "deception": false,
-      "performance": false,
-      "investigation": false,
-      "persuasion": false,
-      "medicine": false,
-      "history": false,
-      "insight": false,
-      "intimidation": false,
-      "nature": false,
-      "perception": false,
-      "religion": false,
-      "stealth": false,
-      "survival": false,
-      "sleightOfHand": false
-    },
+    "deathSavingThrows": 0,
+    "skills": [
+      {
+        "name": "Acrobatics",
+        "isProficient": true,
+        "ability": "dexterity"
+      },
+      {
+        "name": "Animal Handling",
+        "isProficient": false,
+        "ability": "wisdom"
+      },
+      {
+        "name": "Arcana",
+        "isProficient": false,
+        "ability": "intelligence"
+      },
+      {
+        "name": "Athletics",
+        "isProficient": false,
+        "ability": "strength"
+      },
+      {
+        "name": "Deception",
+        "isProficient": false,
+        "ability": "charisma"
+      },
+      {
+        "name": "History",
+        "isProficient": false,
+        "ability": "intelligence"
+      },
+      {
+        "name": "Insight",
+        "isProficient": false,
+        "ability": "wisdom"
+      },
+      {
+        "name": "Intimidation",
+        "isProficient": false,
+        "ability": "charisma"
+      },
+      {
+        "name": "Investigation",
+        "isProficient": false,
+        "ability": "intelligence"
+      },
+      {
+        "name": "Medicine",
+        "isProficient": false,
+        "ability": "wisdom"
+      },
+      {
+        "name": "Nature",
+        "isProficient": false,
+        "ability": "intelligence"
+      },
+      {
+        "name": "Perception",
+        "isProficient": false,
+        "ability": "wisdom"
+      },
+      {
+        "name": "Performance",
+        "isProficient": false,
+        "ability": "charisma"
+      },
+      {
+        "name": "Persuasion",
+        "isProficient": false,
+        'ability': 'charisma'
+      },
+      {
+        'name': 'Religion',
+        'isProficient': false,
+        'ability': 'intelligence'
+      },
+      {
+        'name': 'Sleight of Hand',
+        'isProficient': true,
+        'ability': 'dexterity'
+      },
+      {
+        'name': 'Stealth',
+        'isProficient': true,
+        'ability': 'dexterity'
+      },
+      {
+        'name': 'Survival',
+        'isProficient': false,
+        'ability': 'wisdom'
+      },
+
+
+    ],
     "powers": {
       "atWill": [
         {
@@ -154,480 +228,4 @@ export const players: Array<CharacterSheetProps["characterData"]> = [
       }
     ]
   },
-  {
-    "name": "Krusk",
-    "class": "Cleric/Barbarian",
-    "race": "Half-Orc",
-    "lvl": 8,
-    "portraitUrl": "https://www.dndbeyond.com/avatars/14029/652/1581111423-38739076.jpeg?width=150&height=150&fit=crop&quality=95&auto=webp",
-    "stats": {
-      "strength": 20,
-      "dexterity": 12,
-      "constitution": 16,
-      "intelligence": 6,
-      "wisdom": 20,
-      "charisma": 12
-    },
-    "health": {
-      "maxHp": 75,
-      "currentHp": 75,
-      "temporaryHp": 0,
-    },
-    "defenses": {
-      "ac": 19,
-      "strength": true,
-      "dexterity": false,
-      "constitution": true,
-      "intelligence": false,
-      "wisdom": false,
-      "charisma": false
-    },
-    "proficiencyBonus": 3,
-    "initiative": 1,
-    "speed": 6,
-    "deathSavingThrows": 0,
-    "skills": {
-      "acrobatics": false,
-      "animalHandling": true,
-      "arcana": false,
-      "athletics": true,
-      "deception": false,
-      "history": false,
-      "insight": false,
-      "intimidation": true,
-      "investigation": false,
-      "medicine": false,
-      "nature": false,
-      "perception": true,
-      "performance": false,
-      "persuasion": false,
-      "religion": false,
-      "sleightOfHand": false,
-      "stealth": false,
-      "survival": true,
-    },
-    "powers": {
-      "atWill": [
-        {
-          "name": "Lance of Faith",
-          "description": "A beam of white light streams toward your enemy, bowling over that creature and burning it with radiant power.",
-          "used": false,
-          "diceRoll": "1d8+3"
-        },
-        {
-          "name": "Priest's Shield",
-          "description": "A shield of divine energy protects you from harm and helps your ally against the same enemy.",
-          "used": false
-        },
-        {
-          "name": "Howling Strike",
-          "description": "You let loose a fierce howl and strike with a powerful blow.",
-          "used": false,
-          "diceRoll": "1d12+4"
-        }
-      ],
-      "encounter": [
-        {
-          "name": "Divine Glow",
-          "description": "A burning column of radiance bursts from above, searing your foes and empowering your allies.",
-          "used": false,
-          "diceRoll": "2d8+3"
-        },
-        {
-          "name": "Healing Strike",
-          "description": "You attack your foe and invoke divine power to medicine you or an ally near you.",
-          "used": false,
-          "diceRoll": "2d8+4"
-        },
-        {
-          "name": "Swift Charge",
-          "description": "You barrel toward an enemy, heedless of danger. Your speed and ferocity catch your enemy off guard.",
-          "used": false,
-          "diceRoll": "2d12+4"
-        }
-      ],
-      "daily": [
-        {
-          "name": "Flame Strike",
-          "description": "A column of divine fire burns down from above, dealing fire and radiant damage.",
-          "used": false,
-          "diceRoll": "3d10+3"
-        },
-        {
-          "name": "Rage Strike",
-          "description": "You strike with the full fury of your rage.",
-          "used": false,
-          "diceRoll": "3d12+4"
-        }
-      ],
-      "utility": [
-        {
-          "name": "Blessing of Fervor",
-          "description": "You channel divine power into your allies to aid their actions.",
-          "used": false
-        },
-        {
-          "name": "Savage Advance",
-          "description": "Your unbridled rage drives you forward through the battlefield.",
-          "used": false
-        }
-      ]
-    },
-    "equipment": {
-      "weapons": [
-        {
-          "name": "Warhammer +2",
-          "attackModifier": 10,
-          "damageFormula": "1d8",
-          "damageModifier": 6,
-          "properties": ["Versatile"],
-          "description": "A one-handed hammer designed for combat."
-        },
-        {
-          "name": "Heavy Shield",
-          "attackModifier": 8,
-          "damageFormula": "1d4",
-          "damageModifier": 4,
-          "properties": ["Shield"],
-          "description": "A large shield that provides protection and can be used as an improvised weapon."
-        }
-      ],
-      "armor": "Chainmail +2",
-      "gear": ["Holy Symbol", "Backpack", "Healer's Kit", "Waterskin"],
-      "magicItems": ["Gauntlets of Ogre Power +2", "Amulet of Protection +1"]
-    },
-    "feats": ["Weapon Focus (Hammer)", "Toughness", "Healing Hands"],
-    "wealth": {
-      "gold": 450,
-      "silver": 20,
-      "copper": 0
-    },
-    "languages": ["Common", "Orc"],
-    "resistances": [],
-    "notes": "Half-Orc racial: +2 Intimidation, +2 Persuasion, Furious Assault 1/encounter",
-    "conditions": []
-  },
-  {
-    "name": "Oliver",
-    "class": "Sorcerer",
-    "race": "Human",
-    "lvl": 8,
-    "portraitUrl": "https://www.dndbeyond.com/avatars/44141/67/1581111423-38647612.jpeg?width=150&height=150&fit=crop&quality=95&auto=webp",
-    "stats": {
-      "strength": 10,
-      "dexterity": 12,
-      "constitution": 19,
-      "intelligence": 11,
-      "wisdom": 14,
-      "charisma": 22
-    },
-    "health": {
-      "maxHp": 56,
-      "currentHp": 68,
-      "temporaryHp": 0,
-    },
-    "defenses": {
-      "ac": 14,
-      "strength": false,
-      "dexterity": false,
-      "constitution": true,
-      "intelligence": false,
-      "wisdom": false,
-      "charisma": true
-    },
-    "proficiencyBonus": 3,
-    "initiative": 1,
-    "speed": 6,
-    "deathSavingThrows": 0,
-    "skills": {
-      "acrobatics": false,
-      "animalHandling": false,
-      "arcana": false,
-      "athletics": false,
-      "deception": false,
-      "history": false,
-      "insight": true,
-      "intimidation": false,
-      "investigation": false,
-      "medicine": false,
-      "nature": false,
-      "perception": true,
-      "performance": false,
-      "persuasion": true,
-      "religion": false,
-      "sleightOfHand": true,
-      "stealth": false,
-      "survival": true,
-    },
-    "powers": {
-      "atWill": [
-        {
-          "name": "Chaos Bolt",
-          "description": "You unleash a blast of many-colored energy that ricochets from enemy to enemy.",
-          "used": false,
-          "diceRoll": "1d10+5"
-        },
-        {
-          "name": "Storm Walk",
-          "description": "Your form crackles with lightning, and you fly forward to blast your foes with electricity.",
-          "used": false,
-          "diceRoll": "1d8+5"
-        }
-      ],
-      "encounter": [
-        {
-          "name": "Lightning Daggers",
-          "description": "You hurl small bolts of lightning that explode like grenades, shattering into smaller lightning bolts that strike adjacent enemies.",
-          "used": false,
-          "diceRoll": "2d8+5"
-        },
-        {
-          "name": "Bedeviling Burst",
-          "description": "You change your enemy's perceptions, and what was once an ally now seems a deadly foe.",
-          "used": false,
-          "diceRoll": "2d10+5"
-        },
-        {
-          "name": "Thundering Roar",
-          "description": "You emit a sonic cry that batters your foes, knocking them away from you.",
-          "used": false,
-          "diceRoll": "2d8+5"
-        }
-      ],
-      "daily": [
-        {
-          "name": "Dazzling Ray",
-          "description": "You loose a barrage of meteoric energy that overwhelms your enemy.",
-          "used": false,
-          "diceRoll": "6d6+5"
-        },
-        {
-          "name": "Lightning Breath",
-          "description": "Crackling arcs of lightning leap from your mouth, burning enemies in front of you and blasting through to enemies behind them.",
-          "used": false,
-          "diceRoll": "4d8+5"
-        }
-      ],
-      "utility": [
-        {
-          "name": "Elemental Shift",
-          "description": "You briefly take on the form of an elemental creature, slipping between spaces with incredible speed.",
-          "used": false
-        },
-        {
-          "name": "Swift Escape",
-          "description": "As danger threatens, you teleport away in a flash of light.",
-          "used": false
-        }
-      ]
-    },
-    "equipment": {
-      "weapons": [
-        {
-          "name": "Quarterstaff +2",
-          "attackModifier": 9,
-          "damageFormula": "1d6",
-          "damageModifier": 5,
-          "properties": ["Versatile"],
-          "description": "A simple wooden staff used as a weapon and spellcasting focus."
-        },
-        {
-          "name": "Dagger",
-          "attackModifier": 7,
-          "damageFormula": "1d4",
-          "damageModifier": 3,
-          "properties": ["Light", "Thrown", "Versatile"],
-          "description": "A small blade designed for stabbing or throwing."
-        }
-      ],
-      "armor": "Cloth Armor +2",
-      "gear": ["Arcane Implement", "Backpack", "Spellbook", "Alchemist's Fire"],
-      "magicItems": ["Circlet of Mental Prowess +2", "Bracers of Mighty Striking +1"]
-    },
-    "feats": ["Arcane Initiate", "Implement Focus (Staff)", "Ritual Caster"],
-    "wealth": {
-      "gold": 580,
-      "silver": 50,
-      "copper": 25
-    },
-    "languages": ["Common", "Elven", "Draconic"],
-    "resistances": [],
-    "notes": "Human racial: +1 to all defenses, bonus at-will power, bonus feat, bonus skill",
-    "conditions": [
-      {
-        "name": "Dazed",
-        "duration": "End of next turn",
-        "description": "Grant combat advantage, can take only one action (standard, move, or minor) during your turn, can't flank"
-      }
-    ]
-  },
-  {
-    "name": "Raza",
-    "class": "Warlock/Sorcerer",
-    "race": "Elf",
-    "lvl": 8,
-    "portraitUrl": "https://www.dndbeyond.com/avatars/15092/799/1581111423-42882950.jpeg?width=150&height=150&fit=crop&quality=95&auto=webp",
-    "stats": {
-      "strength": 10,
-      "dexterity": 9,
-      "constitution": 11,
-      "intelligence": 16,
-      "wisdom": 18,
-      "charisma": 22
-    },
-    "health": {
-      "maxHp": 42,
-      "currentHp": 42,
-      "temporaryHp": 0,
-    },
-    "defenses": {
-      "ac": 12,
-      "strength": false,
-      "dexterity": false,
-      "constitution": false,
-      "intelligence": false,
-      "wisdom": true,
-      "charisma": true
-    },
-    "proficiencyBonus": 3,
-    "initiative": -1,
-    "speed": 6,
-    "deathSavingThrows": 0,
-    "skills": {
-      "acrobatics": false,
-      "animalHandling": false,
-      "arcana": true,
-      "athletics": false,
-      "deception": false,
-      "history": true,
-      "insight": false,
-      "intimidation": false,
-      "investigation": false,
-      "medicine": true,
-      "nature": false,
-      "perception": false,
-      "performance": false,
-      "persuasion": false,
-      "religion": false,
-      "sleightOfHand": false,
-      "stealth": false,
-      "survival": false,
-    },
-    "powers": {
-      "atWill": [
-        {
-          "name": "Eldritch Blast",
-          "description": "You fire a bolt of dark energy at your enemy.",
-          "used": false,
-          "diceRoll": "1d10+4"
-        },
-        {
-          "name": "Dire Radiance",
-          "description": "You pierce your enemy with a ray of dark energy.",
-          "used": false,
-          "diceRoll": "1d6+4"
-        },
-        {
-          "name": "Chaos Bolt",
-          "description": "You unleash a blast of many-colored energy that ricochets from enemy to enemy.",
-          "used": false,
-          "diceRoll": "1d10+4"
-        }
-      ],
-      "encounter": [
-        {
-          "name": "Witchfire",
-          "description": "Flames dance upon your enemy as you engulf it with fire.",
-          "used": false,
-          "diceRoll": "2d8+4"
-        },
-        {
-          "name": "Vampiric Embrace",
-          "description": "Dark energy streams from your enemy, giving you vitality.",
-          "used": false,
-          "diceRoll": "2d10+4"
-        },
-        {
-          "name": "Thunder Slam",
-          "description": "You crash a thunderclap of sonic energy into your foe.",
-          "used": false,
-          "diceRoll": "3d8+4"
-        }
-      ],
-      "daily": [
-        {
-          "name": "Curse of the Dark Dream",
-          "description": "Your enemy's mind is caught in a dark and terrible dreamscape that it can't escape.",
-          "used": false,
-          "diceRoll": "3d8+4"
-        },
-        {
-          "name": "Flames of the Pit",
-          "description": "Hellfire erupts on your enemy, and you gain power over your foe.",
-          "used": false,
-          "diceRoll": "4d10+4"
-        }
-      ],
-      "utility": [
-        {
-          "name": "Shadow Veil",
-          "description": "Shadows wrap around you, hiding you from your enemies.",
-          "used": false
-        },
-        {
-          "name": "Ethereal Stride",
-          "description": "You become insubstantial and step through your enemies as if they were no more solid than smoke.",
-          "used": false
-        }
-      ]
-    },
-    "equipment": {
-      "weapons": [
-        {
-          "name": "Rod +2",
-          "attackModifier": 9,
-          "damageFormula": "1d4",
-          "damageModifier": 5,
-          "properties": ["Arcane Focus"],
-          "description": "A magical rod used as a spellcasting focus and weapon."
-        },
-        {
-          "name": "Dagger",
-          "attackModifier": 7,
-          "damageFormula": "1d4",
-          "damageModifier": 3,
-          "properties": ["Light", "Thrown", "Versatile"],
-          "description": "A small blade designed for stabbing or throwing."
-        }
-      ],
-      "armor": "Leather Armor +2",
-      "gear": ["Arcane Implement", "Backpack", "Ritual Components", "Poisons"],
-      "magicItems": ["Gloves of Eldritch Admixture +2", "Cloak of Distortion +1"]
-    },
-    "feats": [
-      "Improved Dark One's Blessing",
-      "Implement Expertise (Rod)",
-      "Dual Implement Spellcaster"
-    ],
-    "wealth": {
-      "gold": 520,
-      "silver": 40,
-      "copper": 10
-    },
-    "languages": ["Common", "Elven", "Abyssal"],
-    "resistances": [],
-    "notes": "Drow racial: +2 Stealth, +2 Intimidation, Darkfire 1/encounter, Cloud of Darkness 1/encounter",
-    "conditions": [
-      {
-        "name": "Slowed",
-        "duration": "Save ends",
-        "description": "Your speed becomes 2, and you take a -2 penalty to AC, Reflex, and attack rolls"
-      },
-      {
-        "name": "Weakened",
-        "duration": "Until end of encounter",
-        "description": "Your attacks deal half damage"
-      }
-    ]
-  }
 ]

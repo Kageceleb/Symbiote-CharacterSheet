@@ -58,11 +58,11 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({ characterData })
   const handleWeaponAttackRoll = (weapon: typeof characterData.equipment.weapons[0], rollType: 'normal' | 'advantage' | 'disadvantage') => {
     const diceCount = rollType === 'normal' ? 1 : 2;
     const formula = `${diceCount}d20+${weapon.attackModifier}`;
-    
+
     // Use TS.dice system for weapon attacks
-    TS.dice.putDiceInTray([{ 
-      name: `${weapon.name} Attack (${rollType})`, 
-      roll: formula 
+    TS.dice.putDiceInTray([{
+      name: `${weapon.name} Attack (${rollType})`,
+      roll: formula
     }], false);
   };
 
@@ -91,11 +91,10 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({ characterData })
           <div className="health-section">
             <h3>Base Stats</h3>
             <div className="stat-group">
-              <p>HP: {characterData.health.currentHp}/{characterData.health.maxHp}</p>
-              <p>Bloodied: {Math.floor(characterData.health.maxHp / 2)}</p>
-              <p>Temp HP: {characterData.health.temporaryHp}</p>
+              <p>HP: {characterData.health.currentHp}/<input type="text" /> </p>
+              <p>Temp HP: <input type="text" /> </p>
               <p>Initiative: {formatModifier(characterData.initiative)}</p>
-           
+
             </div>
           </div>
 
@@ -111,12 +110,12 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({ characterData })
             <h3>Defenses</h3>
             <div className="stat-group">
               <p>AC: {characterData.defenses.ac}</p>
-              <p>Strenght: + {(Math.floor((characterData.stats.strength- 10) / 2)) + (characterData.defenses.strength? characterData.proficiencyBonus: 0)}</p>
-              <p>Dexterity: + {(Math.floor((characterData.stats.dexterity- 10) / 2)) + (characterData.defenses.dexterity? characterData.proficiencyBonus: 0)}</p>
-              <p>Constitution: + {(Math.floor((characterData.stats.constitution- 10) / 2)) + (characterData.defenses.constitution? characterData.proficiencyBonus: 0)}</p>
-              <p>Intelligence: + {(Math.floor((characterData.stats.intelligence- 10) / 2)) + (characterData.defenses.intelligence? characterData.proficiencyBonus: 0)}</p>
-              <p>Wisdom: + {(Math.floor((characterData.stats.wisdom- 10) / 2)) + (characterData.defenses.wisdom? characterData.proficiencyBonus: 0)}</p>
-              <p>Charisma: + {(Math.floor((characterData.stats.charisma- 10) / 2)) + (characterData.defenses.charisma? characterData.proficiencyBonus: 0)}</p>
+              <p>Strenght: + {(Math.floor((characterData.stats.strength - 10) / 2)) + (characterData.defenses.strength ? characterData.proficiencyBonus : 0)}</p>
+              <p>Dexterity: + {(Math.floor((characterData.stats.dexterity - 10) / 2)) + (characterData.defenses.dexterity ? characterData.proficiencyBonus : 0)}</p>
+              <p>Constitution: + {(Math.floor((characterData.stats.constitution - 10) / 2)) + (characterData.defenses.constitution ? characterData.proficiencyBonus : 0)}</p>
+              <p>Intelligence: + {(Math.floor((characterData.stats.intelligence - 10) / 2)) + (characterData.defenses.intelligence ? characterData.proficiencyBonus : 0)}</p>
+              <p>Wisdom: + {(Math.floor((characterData.stats.wisdom - 10) / 2)) + (characterData.defenses.wisdom ? characterData.proficiencyBonus : 0)}</p>
+              <p>Charisma: + {(Math.floor((characterData.stats.charisma - 10) / 2)) + (characterData.defenses.charisma ? characterData.proficiencyBonus : 0)}</p>
             </div>
           </div>
 

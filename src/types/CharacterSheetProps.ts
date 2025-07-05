@@ -1,3 +1,16 @@
+export interface BaseStats {
+    strength: number,
+    dexterity: number,
+    constitution: number,
+    intelligence: number,
+    wisdom: number,
+    charisma: number
+}
+export interface SkillProps {
+    name: string,
+    isProficient: boolean,
+    ability: keyof BaseStats
+}
 export interface CharacterSheetProps {
     characterData: {
         name: string,
@@ -5,14 +18,7 @@ export interface CharacterSheetProps {
         race: string,
         lvl: number,
         portraitUrl?: string,
-        stats: {
-            strength: number,
-            dexterity: number,
-            constitution: number,
-            intelligence: number,
-            wisdom: number,
-            charisma: number
-        },
+        stats: BaseStats,
         health: {
             maxHp: number,
             currentHp: number,
@@ -32,26 +38,7 @@ export interface CharacterSheetProps {
         initiative: number,
         speed: number,
         deathSavingThrows: number,
-        skills: {
-            acrobatics: boolean,
-            animalHandling: boolean,
-            arcana: boolean,
-            athletics: boolean,
-            deception: boolean,
-            history: boolean,
-            insight: boolean,
-            intimidation: boolean,
-            investigation: boolean,
-            medicine: boolean,
-            nature: boolean,
-            perception: boolean,
-            performance: boolean,
-            persuasion: boolean,
-            religion: boolean,
-            stealth: boolean,
-            survival: boolean,
-            sleightOfHand: boolean
-        },
+        skills: SkillProps[],
         powers: {
             atWill: PowerData[],
             encounter: PowerData[],
