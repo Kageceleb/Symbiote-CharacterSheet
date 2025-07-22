@@ -10,9 +10,6 @@ describe('Powers', () => {
         { name: 'Magic Missile', description: 'A basic attack', diceRoll: '1d4+5', used: false },
         { name: 'Fire Bolt', description: 'A fire attack', diceRoll: '1d6+3', used: true }
       ],
-      encounter: [
-        { name: 'Lightning Strike', description: 'A lightning attack', diceRoll: '2d6+4', used: false }
-      ],
       daily: [
         { name: 'Fireball', description: 'A powerful fire attack', diceRoll: '8d6', used: false }
       ],
@@ -34,7 +31,6 @@ describe('Powers', () => {
 
     // Check category headers
     expect(getByText('At-Will Powers')).toBeInTheDocument();
-    expect(getByText('Encounter Powers')).toBeInTheDocument();
     expect(getByText('Daily Powers')).toBeInTheDocument();
     expect(getByText('Utility Powers')).toBeInTheDocument();
 

@@ -136,7 +136,7 @@ Use the following naming convention for branches:
 
 - Use the established styling patterns
 - Keep the Kage Symbiote theme consistent
-- Powers should be color-coded by type (at-will, encounter, daily, utility)
+- Powers should be color-coded by type (at-will, daily, utility)
 - Ensure component reusability
 
 ### TaleSpire Integration

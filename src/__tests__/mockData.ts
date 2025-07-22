@@ -75,14 +75,6 @@ export const mockCharacterData: CharacterSheetProps['characterData'] = {
         diceRoll: '1d20+8'
       }
     ],
-    encounter: [
-      {
-        name: 'Sweeping Blow',
-        description: 'Attack all adjacent enemies',
-        used: false,
-        diceRoll: '1d20+8'
-      }
-    ],
     daily: [
       {
         name: 'Brute Strike',
