@@ -2,8 +2,6 @@ import React, { useState } from "react"
 import { CharacterSheetProps, Condition } from "../types/CharacterSheetProps"
 import { Skills } from "./Skills";
 import { AbilityScores } from "./AbilityScores";
-import { info } from "console";
-import { start } from "repl";
 import { CharacterInfo } from "./CharacterInfo";
 
 export const CharacterSheet: React.FC<CharacterSheetProps> = ({ characterData }) => {
@@ -22,6 +20,15 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({ characterData })
 
   // Add a new state for tracking roll type
   const [rollType, setRollType] = useState<'normal' | 'advantage' | 'disadvantage'>('normal');
+
+  const [tempHP, setTempHP] = useState(localStorage.getItem('tempHP') || characterData.health.maxHp.toString());
+
+const handleTempHPChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  setTempHP(event.target.value);
+  localStorage.setItem('tempHP', event.target.value);
+  // Here you can handle the change, e.g., update state or send to server
+  console.log(`Temporary HP changed to: ${tempHP}`);
+}
 
   // Helper functions
   const formatModifier = (modifier: number) => {
@@ -66,15 +73,14 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({ characterData })
   return (
     <div className="character-sheet">
       <h1>{characterData.name}</h1>
-
       <div className="character-main-row">
         <CharacterInfo characterData={characterData} />
 
         <div className="combat-stats">
           <h3>Base Stats</h3>
           <div className="stat-group">
-            <p>HP: {characterData.health.maxHp}: <input type="number" size={10} /> </p>
-            <p>Temp HP: <input type="number" /> </p>
+            <p>HP: {characterData.health.maxHp}: <input type="number" value={tempHP} size={10} onChange={handleTempHPChange} /></p>
+            <p>Temp HP: <input type="number" /></p>
             <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '10px' }}>
               <p>Initiative: </p>
               <p

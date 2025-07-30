@@ -16,7 +16,7 @@ This project provides an interactive character sheet for Kage Symbiote role-play
 
 - **Character Management**: Track character abilities, skills, hit points, and other vital statistics
 - **Dice Roller**: Built-in dice roller for checks and attacks 
-- **Power Tracking**: Track usage of daily, and other powers
+- **Power Tracking**: Track usage of encounter, daily, and other powers
 - **Conditions**: Add, remove, and track active conditions
 - **TaleSpire Integration**: Designed to work with TaleSpire for enhanced gameplay
 
