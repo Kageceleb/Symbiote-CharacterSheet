@@ -908,10 +908,6 @@ details[open] .section-header::after {
   .character-header {
     grid-template-columns: 1fr;
   }
-
-  .skills-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 /* Character Info Styles */

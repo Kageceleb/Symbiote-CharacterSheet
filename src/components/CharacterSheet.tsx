@@ -1,8 +1,8 @@
 import React, { useState } from "react"
 import { CharacterSheetProps, Condition } from "../types/CharacterSheetProps"
-import { Skills } from "./Skills";
 import { AbilityScores } from "./AbilityScores";
 import { CharacterInfo } from "./CharacterInfo";
+import { Skill } from "./Skills/Skill";
 
 export const CharacterSheet: React.FC<CharacterSheetProps> = ({ characterData }) => {
   // State for dice roll modal
@@ -101,7 +101,7 @@ const handleTempHPChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         {/* <FeatsAndAbilities characterData={characterData} /> */}
       </div>
       <AbilityScores characterData={characterData} rollDice={rollDice} />
-      <Skills characterData={characterData} />
+      <Skill characterData={characterData} />
 
       {/* Dice Roll Modal */}
       <div className={`dice-roll-modal ${showDiceModal ? 'show' : ''}`} onClick={() => setShowDiceModal(false)}>

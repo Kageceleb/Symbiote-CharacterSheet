@@ -23,7 +23,7 @@ export const AbilityScores: React.FC<AbilityScoresProps> = ({ characterData, rol
       <div className="abilities-grid">
         {Object.entries(characterData.stats).map(([name, stat]) => (
           <div key={name} className="ability">
-            <h3>{name.charAt(0).toUpperCase() + name.slice(1, 3)}</h3>
+            <h3>{name.charAt(0).toUpperCase() + name.slice(1)}</h3>
             <p className="ability-score">{stat.value}</p>
             <p
               className="ability-mod"
