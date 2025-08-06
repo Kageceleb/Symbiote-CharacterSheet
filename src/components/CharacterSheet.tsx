@@ -1,8 +1,9 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { CharacterSheetProps, Condition } from "../types/CharacterSheetProps"
 import { AbilityScores } from "./AbilityScores";
 import { CharacterInfo } from "./CharacterInfo";
 import { Skill } from "./Skills/Skill";
+import { BeyondDataType } from "../types/beyondDataType";
 
 export const CharacterSheet: React.FC<CharacterSheetProps> = ({ characterData }) => {
   // State for dice roll modal
@@ -14,6 +15,21 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({ characterData })
     values: number[];
     modifier: number;
   } | null>(null);
+
+  const [beyondData, setBeyondData] = useState<BeyondDataType | null>(null)
+  useEffect(() => {
+    const fetchCharacterData = async () => {  
+      try {
+        const response = await fetch(`http://localhost:3001/api/character/38647612`)
+        const data = await response.json();
+        setBeyondData(data);
+      } catch (error) {
+        console.error('Error fetching character data:', error);
+      }
+    }    
+    fetchCharacterData();
+}, []);
+console.log({beyondData})
 
   // State for character's current conditions
   const [conditions, setConditions] = useState<Condition[]>(characterData.conditions || []);
@@ -73,9 +89,9 @@ const handleTempHPChange = (event: React.ChangeEvent<HTMLInputElement>) => {
   return (
     <div className="character-sheet">
       <h1>{characterData.name}</h1>
+      <h1>{beyondData? beyondData.data.name : "nada"}</h1>
       <div className="character-main-row">
         <CharacterInfo characterData={characterData} />
-
         <div className="combat-stats">
           <h3>Base Stats</h3>
           <div className="stat-group">

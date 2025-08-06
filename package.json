@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "webpack serve --mode development",
     "build": "webpack --mode production",
@@ -43,6 +44,9 @@
     "@emotion/styled": "^11.14.1",
     "@mui/icons-material": "^7.2.0",
     "@mui/material": "^7.2.0",
-    "dmscreen": "file:"
+    "cors": "^2.8.5",
+    "dmscreen": "file:",
+    "express": "^5.1.0",
+    "node-fetch": "^3.3.2"
   }
 }

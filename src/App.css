@@ -36,20 +36,19 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
 }
 
 /* Character Sheet Main Container */
 .character-sheet {
   width: 100%;
   max-width: 850px;
-  padding: 15px;
+  padding: 5px;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   background-color: #f4e9d2; /* Parchment-like color */
   background-image: url('https://www.transparenttextures.com/patterns/parchment.png');
   font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
   color: #331800;
   position: relative;
   border: 1px solid #8b4513;
