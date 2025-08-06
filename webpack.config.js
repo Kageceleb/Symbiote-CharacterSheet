@@ -1,7 +1,11 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin'); // If you're using HTML
+import path from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin'; // If you're using HTML
+import { fileURLToPath } from 'url';
 
-module.exports = {
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+export default {
   mode: 'development', // or 'production' for a production build
   devtool: 'inline-source-map', // Good for debugging
   entry: './src/index.tsx', // Your main entry point

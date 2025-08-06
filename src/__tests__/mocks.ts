@@ -57,18 +57,6 @@ export const mockTS = {
         diceRoll: '1d20+8'
       }
     ],
-    encounter: [
-      {
-        name: 'Trick Strike',
-        used: false,
-        diceRoll: '1d20+8'
-      },
-      {
-        name: 'Sweeping Blow',
-        used: false,
-        diceRoll: '1d20+8'
-      }
-    ],
     daily: [
       {
         name: 'Brute Strike',

@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import { Skills } from "../components/Skills";
+import { Skill } from "../components/Skills/Skill";
 
 // Mock the global TS object for dice rolling
 global.TS = {
@@ -49,7 +49,7 @@ describe("Skills component", () => {
   });
 
   it("renders all skills with correct names and abilities", () => {
-    render(<Skills characterData={mockCharacterData as any} />);
+    render(<Skill characterData={mockCharacterData as any} />);
     expect(screen.getByText("Acrobatics (dexterity)")).toBeInTheDocument();
     expect(screen.getByText("Animal Handling (wisdom)")).toBeInTheDocument();
     expect(screen.getByText("Arcana (intelligence)")).toBeInTheDocument();
@@ -57,7 +57,7 @@ describe("Skills component", () => {
   });
 
   it("renders correct modifiers for each skill", () => {
-    render(<Skills characterData={mockCharacterData as any} />);
+    render(<Skill characterData={mockCharacterData as any} />);
     // Acrobatics: DEX 14 = +2, +3 proficiency = +5
     expect(screen.getAllByText("+5")[0]).toBeInTheDocument();
     // Animal Handling: WIS 8 = -1, no proficiency
@@ -69,7 +69,7 @@ describe("Skills component", () => {
   });
 
   it("calls TS.dice.putDiceInTray with correct parameters when clicking on a skill modifier", () => {
-    render(<Skills characterData={mockCharacterData as any} />);
+    render(<Skill characterData={mockCharacterData as any} />);
     // Click on Acrobatics modifier
     const acrobaticsMod = screen.getAllByText("+5")[0].closest(".skill-mod") as HTMLElement;
     fireEvent.click(acrobaticsMod);
@@ -80,7 +80,7 @@ describe("Skills component", () => {
   });
 
   it("formats positive, negative, and zero modifiers correctly", () => {
-    render(<Skills characterData={mockCharacterData as any} />);
+    render(<Skill characterData={mockCharacterData as any} />);
     expect(screen.getAllByText("+5")[0]).toBeInTheDocument();
     expect(screen.getByText("-1")).toBeInTheDocument();
     expect(screen.getByText("+0")).toBeInTheDocument();

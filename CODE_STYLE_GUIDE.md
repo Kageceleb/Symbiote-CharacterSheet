@@ -203,7 +203,7 @@ const CharacterSheet = () => {
 
 ### Powers and Abilities
 
-- Categorize powers correctly (at-will, encounter, daily, utility)
+- Categorize powers correctly (at-will, daily, utility)
 - Implement proper tracking for power usage
 - Include all relevant power details (range, damage, effects)
 

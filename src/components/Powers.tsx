@@ -9,12 +9,11 @@ interface PowersProps {
 export const Powers: React.FC<PowersProps> = ({ characterData, rollDice }) => {
   const [powers, setPowers] = useState({
     atWill: [...characterData.powers.atWill],
-    encounter: [...characterData.powers.encounter],
     daily: [...characterData.powers.daily],
     utility: [...characterData.powers.utility]
   });
 
-  const togglePowerUsed = (powerType: 'atWill' | 'encounter' | 'daily' | 'utility', index: number) => {
+  const togglePowerUsed = (powerType: 'atWill' | 'daily' | 'utility', index: number) => {
     const newPowers = { ...powers };
     newPowers[powerType][index].used = !newPowers[powerType][index].used;
     setPowers(newPowers);
@@ -23,7 +22,6 @@ export const Powers: React.FC<PowersProps> = ({ characterData, rollDice }) => {
   const resetPowers = () => {
     const newPowers = { ...powers };
     newPowers.atWill = newPowers.atWill.map(power => ({ ...power, used: false }));
-    newPowers.encounter = newPowers.encounter.map(power => ({ ...power, used: false }));
     newPowers.daily = newPowers.daily.map(power => ({ ...power, used: false }));
     newPowers.utility = newPowers.utility.map(power => ({ ...power, used: false }));
     setPowers(newPowers);
@@ -62,37 +60,7 @@ export const Powers: React.FC<PowersProps> = ({ characterData, rollDice }) => {
             ))}
           </ul>
         </div>
-
-        <div className="power-category">
-          <h3>Encounter Powers</h3>
-          <ul className="power-list">
-            {powers.encounter.map((power, index) => (
-              <li key={`encounter-${index}`} className={`power-item power-encounter ${power.used ? 'used' : ''}`}>
-                <div className="power-name">
-                  <span>{power.name}</span>
-                </div>
-                {power.description && <div className="power-description">{power.description}</div>}
-                <div className="power-actions">
-                  {power.diceRoll && (
-                    <button
-                      className="power-roll-btn"
-                      onClick={() => rollDice(power.diceRoll!, `${power.name}`)}
-                    >
-                      Roll {power.diceRoll}
-                    </button>
-                  )}
-                  <button
-                    className={`power-toggle-btn ${power.used ? 'used' : ''}`}
-                    onClick={() => togglePowerUsed('encounter', index)}
-                  >
-                    {power.used ? 'Mark Available' : 'Mark Used'}
-                  </button>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-
+        
         <div className="power-category">
           <h3>Daily Powers</h3>
           <ul className="power-list">

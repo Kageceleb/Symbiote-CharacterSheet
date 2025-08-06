@@ -160,25 +160,6 @@ export const players: Array<CharacterSheetProps["characterData"]> = [
           "diceRoll": "1d6+7"
         }
       ],
-      "encounter": [
-        {
-          "name": "Dazing Strike",
-          "description": "You slam your weapon into your foe with a jarring blow that leaves it seeing double.",
-          "used": false,
-          "diceRoll": "2d6+5"
-        },
-        {
-          "name": "Jumping Attack",
-          "description": "You leap over obstacles and slice at your foe as you descend.",
-          "used": false,
-          "diceRoll": "2d8+5"
-        },
-        {
-          "name": "Leaping Dodge",
-          "description": "You avoid your enemy's attack with a quick leap that carries you out of the path of danger.",
-          "used": false
-        }
-      ],
       "daily": [
         {
           "name": "Blinding Barrage",

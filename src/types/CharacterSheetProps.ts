@@ -24,12 +24,6 @@ export interface BaseStats {
         saving: boolean
     }
 }
-export interface StatsProps {
-
-
-    wisdom: number,
-    charisma: number
-}
 export interface SkillProps {
     name: string,
     isProficient: boolean,
@@ -65,7 +59,6 @@ export interface CharacterSheetProps {
         skills: SkillProps[],
         powers: {
             atWill: PowerData[],
-            encounter: PowerData[],
             daily: PowerData[],
             utility: PowerData[]
         },

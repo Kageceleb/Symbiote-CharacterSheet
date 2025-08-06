@@ -1,10 +1,9 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { CharacterSheetProps, Condition } from "../types/CharacterSheetProps"
-import { Skills } from "./Skills";
 import { AbilityScores } from "./AbilityScores";
-import { info } from "console";
-import { start } from "repl";
 import { CharacterInfo } from "./CharacterInfo";
+import { Skill } from "./Skills/Skill";
+import { BeyondDataType } from "../types/beyondDataType";
 
 export const CharacterSheet: React.FC<CharacterSheetProps> = ({ characterData }) => {
   // State for dice roll modal
@@ -17,11 +16,35 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({ characterData })
     modifier: number;
   } | null>(null);
 
+  const [beyondData, setBeyondData] = useState<BeyondDataType | null>(null)
+  useEffect(() => {
+    const fetchCharacterData = async () => {  
+      try {
+        const response = await fetch(`http://localhost:3001/api/character/38647612`)
+        const data = await response.json();
+        setBeyondData(data);
+      } catch (error) {
+        console.error('Error fetching character data:', error);
+      }
+    }    
+    fetchCharacterData();
+}, []);
+console.log({beyondData})
+
   // State for character's current conditions
   const [conditions, setConditions] = useState<Condition[]>(characterData.conditions || []);
 
   // Add a new state for tracking roll type
   const [rollType, setRollType] = useState<'normal' | 'advantage' | 'disadvantage'>('normal');
+
+  const [tempHP, setTempHP] = useState(localStorage.getItem('tempHP') || characterData.health.maxHp.toString());
+
+const handleTempHPChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  setTempHP(event.target.value);
+  localStorage.setItem('tempHP', event.target.value);
+  // Here you can handle the change, e.g., update state or send to server
+  console.log(`Temporary HP changed to: ${tempHP}`);
+}
 
   // Helper functions
   const formatModifier = (modifier: number) => {
@@ -66,15 +89,14 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({ characterData })
   return (
     <div className="character-sheet">
       <h1>{characterData.name}</h1>
-
+      <h1>{beyondData? beyondData.data.name : "nada"}</h1>
       <div className="character-main-row">
         <CharacterInfo characterData={characterData} />
-
         <div className="combat-stats">
           <h3>Base Stats</h3>
           <div className="stat-group">
-            <p>HP: {characterData.health.maxHp}: <input type="number" size={10} /> </p>
-            <p>Temp HP: <input type="number" /> </p>
+            <p>HP: {characterData.health.maxHp}: <input type="number" value={tempHP} size={10} onChange={handleTempHPChange} /></p>
+            <p>Temp HP: <input type="number" /></p>
             <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '10px' }}>
               <p>Initiative: </p>
               <p
@@ -95,7 +117,7 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({ characterData })
         {/* <FeatsAndAbilities characterData={characterData} /> */}
       </div>
       <AbilityScores characterData={characterData} rollDice={rollDice} />
-      <Skills characterData={characterData} />
+      <Skill characterData={characterData} />
 
       {/* Dice Roll Modal */}
       <div className={`dice-roll-modal ${showDiceModal ? 'show' : ''}`} onClick={() => setShowDiceModal(false)}>

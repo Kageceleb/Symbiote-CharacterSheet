@@ -1,11 +1,11 @@
 import React, { useState } from "react"
-import { CharacterSheetProps, SkillProps } from "../types/CharacterSheetProps"
-
+import { CharacterSheetProps, SkillProps } from "../../types/CharacterSheetProps"
+import "./skill.css";
 const modifier: (abilityScore: number) => number = (abilityScore: number) => {
     return Math.floor((abilityScore - 10) / 2);
 }
 
-export const Skills: React.FC<CharacterSheetProps> = ({ characterData }) => {
+export const Skill: React.FC<CharacterSheetProps> = ({ characterData }) => {
     // State for dice roll modal
     const [showDiceModal, setShowDiceModal] = useState(false);
     const [diceRollResult, setDiceRollResult] = useState<{
@@ -42,10 +42,10 @@ export const Skills: React.FC<CharacterSheetProps> = ({ characterData }) => {
 
                             <div key={skill.name} className="skill-item">
                                 <span >{skill.name} ({skill.ability})</span>
+                               
                                 <span
 
                                     className="skill-mod clickable"
-                                    data-testid="acrobatics-modifier"
                                     onClick={() => rollDice(`1d20${formatModifier(mod)}`, `${skill.name} Check`)}
                                 >
                                     {
